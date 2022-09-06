@@ -6,9 +6,9 @@
     
     <?php if(count($instansi)<=0) : ?>
         <link rel="icon" href="<?= base_url('./assets/img/tablogo.png') ?>">
-        <title>Website Resmi Instansi Pemerintah</title>
+        <title> Nama Desa</title>
     <?php else: ?>
-        <title>Website Resmi <?= $instansi[0]['nama'] ?></title>
+        <title>Website Resmi Desa <?= $instansi[0]['nama'] ?></title>
         <?php if($instansi[0]['logo'] == null) : ?>
             <link rel="icon" href="<?= base_url('./assets/img/tablogo.png') ?>">
         <?php else: ?>
@@ -68,7 +68,7 @@
             .acidsb {
                 font-family: "Poppins", sans-serif;
                 font-weight: bold;
-                color: #00D4FF;
+                color: #3AB0FF;
                 font-size: 20px;
                 margin-left: 5px;
                 top: 5px;
@@ -82,22 +82,22 @@
             <tr>
                 <td rowspan="2">
                 <?php if(count($instansi)<=0) : ?>
-                    <img src="<?= base_url('./assets/img/tablogo.png') ?>" alt="logo" width="50px">
+                    <img src="<?= base_url('./assets/img/tablogo.png') ?>" alt="img" width="50px">
                 <?php else: ?>
                     <?php if($instansi[0]['logo'] == null) : ?>
-                        <img src="<?= base_url('./assets/img/tablogo.png') ?>" alt="logo" width="50px">
+                        <img src="<?= base_url('./assets/img/tablogo.png') ?>" alt="img" width="50px">
                     <?php else: ?>
-                        <img src="<?= base_url('./assets/img/tablogo.png') ?>" alt="logo" width="50px">
-                        <!-- <img src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>" alt="logo" width="50px"> -->
+                        <!-- <img src="<?= base_url('./assets/img/tablogo.png') ?>" alt="img" width="50px"> -->
+                        <img src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>" alt="img" width="50px">
                     <?php endif; ?>
                 <?php endif; ?>
                 </td>
                 <td>
                     <?php if(count($instansi)<=0) : ?>
-                        <h3 class="stroke-double" title="Instansi Pemerintah" style="text-align: left;">Instansi Pemerintah</h3>
+                        <h3 class="stroke-double" title="Nama Desa" style="text-align: left;">Nama Desa</h3>
                         <h5 class="acidsb" style="text-align: left;">Pemerintah Kota Sungai Penuh</h5>
                     <?php else: ?>
-                        <h3 class="stroke-double" title="<?= $instansi[0]['nama'] ?>" style="text-align: left;"><?= $instansi[0]['nama'] ?></h3>
+                        <h3 class="stroke-double" title="Desa <?= $instansi[0]['nama'] ?>" style="text-align: left;">Desa <?= $instansi[0]['nama'] ?></h3>
                         <h5 class="acidsb" style="text-align: left;">Pemerintah Kota Sungai Penuh</h5>
                     <?php endif; ?>
                     </td>
@@ -146,10 +146,10 @@
                 <a class="nav-link" href="<?= base_url() ?>auth">Masuk</a>
             </li>
         </ul>
-        <div class="wave" id="wave1" style="--i:1;"></div>
+        <!-- <div class="wave" id="wave1" style="--i:1;"></div>
         <div class="wave" id="wave2" style="--i:2;"></div>
         <div class="wave" id="wave3" style="--i:3;"></div>
-        <div class="wave" id="wave4" style="--i:4;"></div>
+        <div class="wave" id="wave4" style="--i:4;"></div> -->
     </nav>
     <style>
     </style>

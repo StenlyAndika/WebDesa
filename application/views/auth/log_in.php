@@ -10,12 +10,12 @@
 			<div class="col-12">
 				<div class="block">
 					<?php if(count($instansi)<=0) : ?>
-						<div class="image align-self-center"><img class="img-fluid" src="<?= base_url() ?>assets/img/tablogo.png"></div>
+						<div class="image align-self-center"><img class="img-fluid" src="<?= base_url() ?>assets/img/tablogo.png" alt="img"></div>
 					<?php else: ?>
 						<?php if($instansi[0]['logo'] == null) : ?>
-							<div class="image align-self-center"><img class="img-fluid" src="<?= base_url() ?>assets/img/tablogo.png"></div>
+							<div class="image align-self-center"><img class="img-fluid" src="<?= base_url() ?>assets/img/tablogo.png" alt="img"></div>
 						<?php else: ?>
-							<div class="image align-self-center"><img class="img-fluid" src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>"></div>
+							<div class="image align-self-center"><img class="img-fluid" src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>" alt="img"></div>
 						<?php endif; ?>
 					<?php endif; ?>
 					<div class="content text-center">

@@ -5,9 +5,9 @@
                 <br>
                 <h2 class="font-weight-bold mb-4" style="text-align: center;">Sejarah<br>
                 <?php if(count($instansi)<=0) : ?>
-                    Instansi
+                    Nama Desa
                 <?php else: ?>
-                    <?= $instansi[0]['nama'] ?>
+                    Desa <?= $instansi[0]['nama'] ?>
                 <?php endif; ?>
                 </h2>
                 <div class="table-responsive">

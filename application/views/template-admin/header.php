@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php if(count($instansi)<=0) : ?>
         <link rel="icon" href="<?= base_url('./assets/img/tablogo.png') ?>">
-        <title>Website Resmi Instansi Pemerintah</title>
+        <title>Website Resmi Desa</title>
     <?php else: ?>
-        <title>Website Resmi <?= $instansi[0]['nama'] ?></title>
+        <title>Website Resmi Desa <?= $instansi[0]['nama'] ?></title>
         <?php if($instansi[0]['logo'] == null) : ?>
             <link rel="icon" href="<?= base_url('./assets/img/tablogo.png') ?>">
         <?php else: ?>
@@ -32,7 +32,7 @@
 <body>
     <div class="nav-bar">
         <h1 class="">
-            <a href="<?= base_url() ?>"><img style=" width: 220px;" src="<?= base_url() ?>assets/img/logo.png"></a>
+            <a href="<?= base_url() ?>"><img style=" width: 220px;" src="<?= base_url() ?>assets/img/logo.png" alt="img"></a>
         </h1>
         <ul class="nav">
             <?php if((isset($data))&&($data=='dashboard')){?>
