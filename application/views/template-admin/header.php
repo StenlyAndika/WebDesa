@@ -25,12 +25,12 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datatables/datatables.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datepicker/css/bootstrap-datepicker.css">
-    
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- Custom Style -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/template-style.css">
 </head>
 <body>
-    <div class="nav-bar">
+    <!-- <div class="nav-bar">
         <h1 class="">
             <a href="<?= base_url() ?>"><img style=" width: 220px;" src="<?= base_url() ?>assets/img/logo.png" alt="img"></a>
         </h1>
@@ -162,15 +162,76 @@
                 </a>
             </li>
         </ul>
+    </div> -->
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="logo_name">CodingLab</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="<?= base_url() ?>">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="link-name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link-name" href="<?= base_url() ?>">Dashboard</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="#">
+                        <i class='bx bx-upload'></i>
+                        <span class="link-name">Upload Data</span>
+                    </a>
+                    <i class='bx bxs-down-arrow arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link-name" href="">Upload Data</a></li>
+                    <li><a href="<?= base_url() ?>berita">Berita</a></li>
+                    <li><a href="<?= base_url() ?>pengumuman">Pengumuman</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="icon-link">
+                    <a href="#">
+                        <i class='bx bxs-file-archive'></i>
+                        <span class="link-name">Data Instansi</span>
+                    </a>
+                    <i class='bx bxs-down-arrow arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link-name" href="">Data Instansi</a></li>
+                    <li><a href="<?= base_url() ?>profil">Profil Instansi</a></li>
+                    <li><a href="<?= base_url() ?>sejarah">Visi & Misi</a></li>
+                    <li><a href="<?= base_url() ?>visimisi">Struktur Organisasi</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="<?= base_url() ?>admin">
+                    <i class='bx bx-user' ></i>
+                    <span class="link-name">Data Operator</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link-name" href="<?= base_url() ?>admin">Data Operator</a></li>
+                </ul>
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="<?= base_url('./assets/img/avatar.png') ?>" alt="profile">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile-name">Dummy Name</div>
+                        <div class="job">Operator</div>
+                    </div>
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </div>
+            </li>
+        </ul>
+        
     </div>
-    <div class="menu-bar">
-		<div class="topbar">
-			<div class="toggle">
-				<i class="fa-solid fa-bars"></i>
-			</div>
-			<div class="menu-title">
-                <a class="text-white" href="<?= base_url() ?>"><h4>DASHBOARD</h4></a>
-			</div>
-		</div>
-	</div>
-    <div class="main-content">
+    <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu' ></i>
+            <span class="text">Drop Down Sidebar</span>
+        </div>
+        <div class="main-content">

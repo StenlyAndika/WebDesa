@@ -1,22 +1,22 @@
-    </div>
+        </div>
+    </section>
     </body>
     <!-- JAVASCRIPTS -->
     <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/datatables/datatables.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
-    <script src="https://kit.fontawesome.com/d6482bd15d.js" crossorigin="anonymous"></script>
     <script src="<?= base_url() ?>assets/plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
     <script src="<?= base_url() ?>assets/js/template-script.js"></script>
 
     <script>
         $(document).ready(function() {
-            CKEDITOR.replace('sejarah');
-            CKEDITOR.replace('visi');
-            CKEDITOR.replace('misi');
-            CKEDITOR.replace('tugas');
-            CKEDITOR.replace('isi');
-            CKEDITOR.replace('standar');
+            // CKEDITOR.replace('sejarah');
+            // CKEDITOR.replace('visi');
+            // CKEDITOR.replace('misi');
+            // CKEDITOR.replace('tugas');
+            // CKEDITOR.replace('isi');
+            // CKEDITOR.replace('standar');
 
             $("#tgl").datepicker({
                 format: 'dd-mm-yyyy',
