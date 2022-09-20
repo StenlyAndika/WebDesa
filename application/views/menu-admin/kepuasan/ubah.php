@@ -8,26 +8,20 @@
 					</div>
 					<div class="card-body card-block">
 						<form action="" method="POST" enctype="multipart/form-data">
-							<input type="hidden" class="form-control" name="id" value="<?= $kepuasan['id'] ?>">
 							<div class="form-group">
-								<label>Sangat Memuaskan (%)</label>
-								<input type="text" class="form-control" name="sp" value="<?= $kepuasan['sp'] ?>">
-								<small class="form-text text-danger"><?= form_error('sp'); ?></small>
+								<label>Tahun</label>
+								<input type="text" class="form-control" name="tahun" value="<?= $kepuasan['tahun'] ?>">
+								<small class="form-text text-danger"><?= form_error('tahun'); ?></small>
 							</div>
 							<div class="form-group">
-								<label>Memuaskan (%)</label>
-								<input type="text" class="form-control" name="p" value="<?= $kepuasan['p'] ?>">
-								<small class="form-text text-danger"><?= form_error('p'); ?></small>
+								<label>Nilai</label>
+								<input type="text" class="form-control" name="nilai" value="<?= $kepuasan['nilai'] ?>">
+								<small class="form-text text-danger"><?= form_error('nilai'); ?></small>
 							</div>
 							<div class="form-group">
-								<label>Cukup Memuaskan (%)</label>
-								<input type="text" class="form-control" name="cp" value="<?= $kepuasan['cp'] ?>">
-								<small class="form-text text-danger"><?= form_error('cp'); ?></small>
-							</div>
-							<div class="form-group">
-								<label>Kurang Memuaskan (%)</label>
-								<input type="text" class="form-control" name="kp" value="<?= $kepuasan['kp'] ?>">
-								<small class="form-text text-danger"><?= form_error('kp'); ?></small>
+								<label>Predikat</label>
+								<input type="text" class="form-control" name="predikat" value="<?= $kepuasan['predikat'] ?>">
+								<small class="form-text text-danger"><?= form_error('predikat'); ?></small>
 							</div>
 							<div class="form-group">
 								<button type="submit" name="simpan" class="btn btn-sm btn-primary">Submit</button>

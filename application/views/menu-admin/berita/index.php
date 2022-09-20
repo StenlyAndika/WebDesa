@@ -28,6 +28,7 @@
 									<thead>
 										<tr>
 											<th style="text-align: center;">No</th>
+											<th style="text-align: center;">Tgl</th>
 											<th style="text-align: center;">Judul</th>
 											<th style="text-align: center;">Opsi</th>
 										</tr>
@@ -36,6 +37,7 @@
 										<?php $no = 0; foreach ($berita as $row) : $no++; ?>
 										<tr>
 											<td style="text-align: center;"><?= $no; ?></td>
+											<td style="text-align: left;"><?= $row['tgl']; ?></td>
 											<td style="text-align: left;"><?= $row['judul']; ?></td>
 											<td>
 												<a href="<?= base_url() ?>berita/ubah/<?= $row['id'] ?>" class="btn btn-block btn-sm btn-primary">Ubah</a>

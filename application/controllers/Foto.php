@@ -13,55 +13,71 @@ class Foto extends CI_Controller {
 
     public function index()
     {
-		$data['data'] = "foto";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-        $data['foto'] = $this->foto->getAllFoto();
-        $this->load->view('template-admin/header.php', $data);
-        $this->load->view('menu-admin/foto/index.php', $data);
-        $this->load->view('template-admin/footer.php');
+    	if ($this->session->userdata('username') == "") {
+			redirect(base_url());
+		} else {
+			$data['data'] = "foto";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+	        $data['foto'] = $this->foto->getAllFoto();
+	        $this->load->view('template-admin/header.php', $data);
+	        $this->load->view('menu-admin/foto/index.php', $data);
+	        $this->load->view('template-admin/footer.php');
+	    }
     }
 
     public function tambah()
 	{
-		$data['data'] = "foto";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-		$this->form_validation->set_rules('tgl', 'Tanggal', 'required');
-
-		if ( $this->form_validation->run() == FALSE ) {
-			$this->load->view('template-admin/header', $data);
-			$this->load->view('menu-admin/foto/tambah');
-			$this->load->view('template-admin/footer');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
 		} else {
-			$this->foto->add();
-			$this->session->set_flashdata('flash','Ditambahkan');
-			redirect('foto');
+			$data['data'] = "foto";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+			$this->form_validation->set_rules('tgl', 'Tanggal', 'required');
+
+			if ( $this->form_validation->run() == FALSE ) {
+				$this->load->view('template-admin/header', $data);
+				$this->load->view('menu-admin/foto/tambah');
+				$this->load->view('template-admin/footer');
+			} else {
+				$this->foto->add();
+				$this->session->set_flashdata('flash','Ditambahkan');
+				redirect('foto');
+			}
 		}
 	}
 
     public function ubah($id)
 	{
-		$data['data'] = "foto";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-        $data['foto'] = $this->foto->getFotoById($id);
-        
-		$this->form_validation->set_rules('tgl', 'Tanggal', 'required');
-
-		if ( $this->form_validation->run() == FALSE ) {
-			$this->load->view('template-admin/header', $data);
-			$this->load->view('menu-admin/foto/ubah', $data);
-			$this->load->view('template-admin/footer');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
 		} else {
-			$this->foto->update();
-			$this->session->set_flashdata('flash','Diupdate');
-			redirect('foto');
+			$data['data'] = "foto";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+	        $data['foto'] = $this->foto->getFotoById($id);
+	        
+			$this->form_validation->set_rules('tgl', 'Tanggal', 'required');
+
+			if ( $this->form_validation->run() == FALSE ) {
+				$this->load->view('template-admin/header', $data);
+				$this->load->view('menu-admin/foto/ubah', $data);
+				$this->load->view('template-admin/footer');
+			} else {
+				$this->foto->update();
+				$this->session->set_flashdata('flash','Diupdate');
+				redirect('foto');
+			}
 		}
 	}
 
     public function hapus($id)
 	{
-		$this->foto->delete($id);
-		$this->session->set_flashdata('flash','Dihapus');
-		redirect('foto');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
+		} else {
+			$this->foto->delete($id);
+			$this->session->set_flashdata('flash','Dihapus');
+			redirect('foto');
+		}
 	}
 }
 ?>

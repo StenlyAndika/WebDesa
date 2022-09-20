@@ -18,7 +18,7 @@
                 </style>
                 <div class="table-responsive asd" style="text-align: left;">
                     <h2 class="font-weight-bold mb-2" style="text-align: center;"><?= $pelayanan['jenis'] ?><br></h2>
-                    <img class="img-fluid img-responsive center-block" src="<?= base_url('./upload/pelayanan/').$pelayanan['gambar'] ?>" width="500px" alt="img">
+                    <img class="img-fluid img-responsive center-block" src="<?= base_url('./upload/pelayanan/').$pelayanan['gambar'] ?>" width="500px">
                     <p class="ccx mt-4"><?= $pelayanan['standar'] ?></p>
                 </div>
                 <br class="mb-4">

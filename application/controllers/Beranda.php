@@ -16,6 +16,7 @@ class Beranda extends CI_Controller {
 		$this->load->model('Pelayanan_model', 'pelayanan');
 		$this->load->model('Dokumen_model', 'dokumen');
 		$this->load->model('Kontak_model', 'kontak');
+		$this->load->model('Kepuasan_model', 'kepuasan');
 	}
 	
 	public function index()
@@ -30,7 +31,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
@@ -50,7 +51,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/header', $data);
 			$this->load->view('template-admin/footer');
 		} else {
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['berita3'] = $this->berita->getBeritaById($id);
 			$data['berita'] = $this->berita->getAllBerita();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
@@ -74,7 +75,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['sejarah'] = $this->sejarah->getAllSejarah();
 			$this->load->view('template/header.php', $data);
@@ -96,7 +97,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['visimisi'] = $this->visimisi->getAllVisiMisi();
 			$this->load->view('template/header.php', $data);
@@ -118,7 +119,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['struktur'] = $this->struktur->getAllStruktur();
 			$this->load->view('template/header.php', $data);
@@ -140,7 +141,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
             $data['foto'] = $this->foto->getAllFoto();
             $this->load->view('template/header.php', $data);
@@ -162,7 +163,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
             $data['pelayanan'] = $this->pelayanan->getAllPelayanan();
             $this->load->view('template/header.php', $data);
@@ -184,7 +185,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
             $data['pelayanan'] = $this->pelayanan->getPelayananById($id);
             $this->load->view('template/header.php', $data);
@@ -206,7 +207,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['keysearch'] = "";
 			$this->load->view('template/header.php', $data);
@@ -228,7 +229,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['keysearch'] = $this->input->post('cari');
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
@@ -249,7 +250,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');

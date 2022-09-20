@@ -166,10 +166,14 @@
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus'></i>
-            <span class="logo_name">CodingLab</span>
+            <?php if(count($instansi)<=0) : ?>
+                <span class="logo_name">Nama Desa</span>
+            <?php else: ?>
+                <span class="logo_name"><?= $instansi[0]['nama'] ?></span>
+            <?php endif; ?>
         </div>
         <ul class="nav-links">
-            <li>
+            <li class="list">
                 <a href="<?= base_url() ?>">
                     <i class='bx bxs-dashboard'></i>
                     <span class="link-name">Dashboard</span>
@@ -187,27 +191,27 @@
                     <i class='bx bxs-down-arrow arrow'></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link-name" href="">Upload Data</a></li>
-                    <li><a href="<?= base_url() ?>berita">Berita</a></li>
-                    <li><a href="<?= base_url() ?>pengumuman">Pengumuman</a></li>
+                    <li><a class="dropdown-menu-title" href="">Upload Data</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'berita' ? 'active' : '' ?>"><a href="<?= base_url() ?>berita">Berita</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'pengumuman' ? 'active' : '' ?>"><a href="<?= base_url() ?>pengumuman">Pengumuman</a></li>
                 </ul>
             </li>
             <li>
                 <div class="icon-link">
                     <a href="#">
                         <i class='bx bxs-file-archive'></i>
-                        <span class="link-name">Data Instansi</span>
+                        <span class="link-name">Data Desa</span>
                     </a>
                     <i class='bx bxs-down-arrow arrow'></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link-name" href="">Data Instansi</a></li>
-                    <li><a href="<?= base_url() ?>profil">Profil Instansi</a></li>
-                    <li><a href="<?= base_url() ?>sejarah">Visi & Misi</a></li>
-                    <li><a href="<?= base_url() ?>visimisi">Struktur Organisasi</a></li>
+                    <li><a class="dropdown-menu-title" href="">Data Desa</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'profil' ? 'active' : '' ?>"><a href="<?= base_url() ?>profil">Profil Desa</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'sejarah' ? 'active' : '' ?>"><a href="<?= base_url() ?>sejarah">Visi & Misi</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'visimisi' ? 'active' : '' ?>"><a href="<?= base_url() ?>visimisi">Struktur Organisasi</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="list <?= $this->uri->segment(1) == 'admin' ? 'active' : '' ?>">
                 <a href="<?= base_url() ?>admin">
                     <i class='bx bx-user' ></i>
                     <span class="link-name">Data Operator</span>
@@ -215,19 +219,20 @@
                 <ul class="sub-menu blank">
                     <li><a class="link-name" href="<?= base_url() ?>admin">Data Operator</a></li>
                 </ul>
+            </li>
+            <li>
                 <div class="profile-details">
                     <div class="profile-content">
                         <img src="<?= base_url('./assets/img/avatar.png') ?>" alt="profile">
                     </div>
                     <div class="name-job">
-                        <div class="profile-name">Dummy Name</div>
+                        <div class="profile-name"><?= $this->session->userdata('nama') ?></div>
                         <div class="job">Operator</div>
                     </div>
-                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <i class='bx bx-log-out'></i>
                 </div>
             </li>
         </ul>
-        
     </div>
     <section class="home-section">
         <div class="home-content">

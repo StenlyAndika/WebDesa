@@ -9,6 +9,11 @@
 					<div class="card-body card-block">
 						<?= form_open_multipart('berita/tambah'); ?>
 							<div class="form-group">
+								<label>Tanggal</label>
+								<input type="text" class="form-control" name="tgl" id="tgl" value="<?= set_value('tgl'); ?>">
+								<small class="form-text text-danger"><?= form_error('tgl'); ?></small>
+							</div>
+							<div class="form-group">
 								<label>Judul</label>
 								<input type="text" class="form-control" name="judul" value="<?= set_value('judul'); ?>">
 								<small class="form-text text-danger"><?= form_error('judul'); ?></small>

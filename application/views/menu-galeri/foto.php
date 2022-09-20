@@ -5,9 +5,9 @@
                 <br>
                 <h2 class="font-weight-bold mb-2" style="text-align: center;">Galeri Foto 
                 <?php if(count($instansi)<=0) : ?>
-                    Nama Desa
+                    Instansi
                 <?php else: ?>
-                    Desa <?= $instansi[0]['nama'] ?>
+                    <?= $instansi[0]['nama'] ?>
                 <?php endif; ?>
                 </h2>
             <?php
@@ -35,7 +35,7 @@
                         foreach ($data['foto2'] as $rowz) : ?>
                         <div class="col-lg-4">
                             <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal1" class="d-block mb-4 h-100">
-                                <img class="img-fluid img-thumbnail w-100" src="<?= base_url('./upload/foto/') .$rowz['tgl']."/".$rowz['namafile'] ?>" alt="img">
+                                <img class="img-fluid img-thumbnail w-100" src="<?= base_url('./upload/foto/') .$rowz['tgl']."/".$rowz['namafile'] ?>"/>
                             </a>
                         </div>
                     <?php endforeach; ?>

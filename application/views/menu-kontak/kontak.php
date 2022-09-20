@@ -5,9 +5,9 @@
                 <br>
                 <h2 class="font-weight-bold mb-4" style="text-align: center;">
                     <?php if(count($instansi)<=0) : ?>
-                        Nama Desa
+                        Instansi
                     <?php else: ?>
-                        <h4 class="font-weight-bold">Desa <?= $instansi[0]['nama'] ?></h4>
+                        <h4 class="font-weight-bold"><?= $instansi[0]['nama'] ?></h4>
                         <h5><?= $instansi[0]['alamat'] ?></h5>
                     <?php endif; ?>
                 <br>

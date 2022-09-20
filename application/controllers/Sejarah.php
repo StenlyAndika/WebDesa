@@ -13,55 +13,71 @@ class Sejarah extends CI_Controller {
 
     public function index()
     {
-		$data['data'] = "sejarah";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-        $data['sejarah'] = $this->sejarah->getAllSejarah();
-		$this->load->view('template-admin/header.php', $data);
-        $this->load->view('menu-admin/sejarah/index.php', $data);
-        $this->load->view('template-admin/footer.php');
+    	if ($this->session->userdata('username') == "") {
+			redirect(base_url());
+		} else {
+			$data['data'] = "sejarah";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+	        $data['sejarah'] = $this->sejarah->getAllSejarah();
+			$this->load->view('template-admin/header.php', $data);
+	        $this->load->view('menu-admin/sejarah/index.php', $data);
+	        $this->load->view('template-admin/footer.php');
+	    }
     }
 
     public function tambah()
 	{
-		$data['data'] = "sejarah";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-		$this->form_validation->set_rules('sejarah', 'sejarah', 'required');
-
-		if ( $this->form_validation->run() == FALSE ) {
-			$this->load->view('template-admin/header', $data);
-			$this->load->view('menu-admin/sejarah/tambah');
-			$this->load->view('template-admin/footer');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
 		} else {
-			$this->sejarah->add();
-			$this->session->set_flashdata('flash','Ditambahkan');
-			redirect('sejarah');
+			$data['data'] = "sejarah";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+			$this->form_validation->set_rules('sejarah', 'sejarah', 'required');
+
+			if ( $this->form_validation->run() == FALSE ) {
+				$this->load->view('template-admin/header', $data);
+				$this->load->view('menu-admin/sejarah/tambah');
+				$this->load->view('template-admin/footer');
+			} else {
+				$this->sejarah->add();
+				$this->session->set_flashdata('flash','Ditambahkan');
+				redirect('sejarah');
+			}
 		}
 	}
 
     public function ubah($id)
 	{
-		$data['data'] = "sejarah";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-        $data['sejarah'] = $this->sejarah->getSejarahById($id);
-        
-		$this->form_validation->set_rules('sejarah', 'sejarah', 'required');
-
-		if ( $this->form_validation->run() == FALSE ) {
-			$this->load->view('template-admin/header', $data);
-			$this->load->view('menu-admin/sejarah/ubah', $data);
-			$this->load->view('template-admin/footer');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
 		} else {
-			$this->sejarah->update();
-			$this->session->set_flashdata('flash','Diupdate');
-			redirect('sejarah');
+			$data['data'] = "sejarah";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+	        $data['sejarah'] = $this->sejarah->getSejarahById($id);
+	        
+			$this->form_validation->set_rules('sejarah', 'sejarah', 'required');
+
+			if ( $this->form_validation->run() == FALSE ) {
+				$this->load->view('template-admin/header', $data);
+				$this->load->view('menu-admin/sejarah/ubah', $data);
+				$this->load->view('template-admin/footer');
+			} else {
+				$this->sejarah->update();
+				$this->session->set_flashdata('flash','Diupdate');
+				redirect('sejarah');
+			}
 		}
 	}
 
     public function hapus($id)
 	{
-		$this->sejarah->delete($id);
-		$this->session->set_flashdata('flash','Dihapus');
-		redirect('sejarah');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
+		} else {
+			$this->sejarah->delete($id);
+			$this->session->set_flashdata('flash','Dihapus');
+			redirect('sejarah');
+		}
 	}
 }
 ?>

@@ -9,12 +9,12 @@
                     <div class="col-lg-4 col-md-12 m-md-auto align-self-center">
                         <div class="block">
                         <?php if(count($instansi)<=0) : ?>
-                            <a href="#"><img src="<?= base_url('./assets/img/tablogo.png') ?>" width="150px" alt="img"></a>
+                            <a href="#"><img src="<?= base_url('./assets/img/tablogo.png') ?>" width="150px"></a>
                         <?php else: ?>
                             <?php if($instansi[0]['logo'] == null) : ?>
-                                <a href="#"><img src="<?= base_url('./assets/img/tablogo.png') ?>" width="150px" alt="img"></a>
+                                <a href="#"><img src="<?= base_url('./assets/img/tablogo.png') ?>" width="150px"></a>
                             <?php else: ?>
-                                <a href="#"><img src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>" width="150px" alt="img"></a>
+                                <a href="#"><img src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>" width="150px"></a>
                             <?php endif; ?>
                         <?php endif; ?>
                             <ul class="social-icon list-inline">
@@ -67,7 +67,7 @@
                                     <?php if($instansi[0]['nama'] == null) : ?>
                                         <li><i class="fa-solid text-white fa-building"></i> <a href="#">Nama Instansi</a></li>
                                     <?php else: ?>
-                                        <li><i class="fa-solid text-white fa-building"></i> <a href="#">Desa <?= $instansi[0]['nama'] ?></a></li>
+                                        <li><i class="fa-solid text-white fa-building"></i> <a href="#"><?= $instansi[0]['nama'] ?></a></li>
                                     <?php endif; ?>
                                     <?php if($instansi[0]['alamat'] == null) : ?>
                                         <li><i class="fa-solid text-white fa-flag"></i> <a href="#">Alamat Instansi</a></li>
@@ -101,7 +101,7 @@
             </div>
         </div>
         <div class="text-center bg-dark py-4">
-            <small class="text-secondary">Copyright <a href="<?= base_url() ?>auth/root">&copy;</a> <script>document.write(new Date().getFullYear())</script>. Diskominfo Kota Sungai Penuh. All rigths reserved</small class="text-secondary">
+            <small class="text-secondary">Copyright <a href="<?= base_url() ?>auth/root">&copy;</a> <script>document.write(new Date().getFullYear())</script>. Pemerintah Kota Sungai Penuh. All rigths reserved</small class="text-secondary">
         </div>
     </footer>
 

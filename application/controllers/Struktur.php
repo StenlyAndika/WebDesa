@@ -13,55 +13,71 @@ class Struktur extends CI_Controller {
 
     public function index()
     {
-		$data['data'] = "struktur";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-        $data['struktur'] = $this->struktur->getAllStruktur();
-        $this->load->view('template-admin/header.php', $data);
-        $this->load->view('menu-admin/struktur/index.php', $data);
-        $this->load->view('template-admin/footer.php');
+    	if ($this->session->userdata('username') == "") {
+			redirect(base_url());
+		} else {
+			$data['data'] = "struktur";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+	        $data['struktur'] = $this->struktur->getAllStruktur();
+	        $this->load->view('template-admin/header.php', $data);
+	        $this->load->view('menu-admin/struktur/index.php', $data);
+	        $this->load->view('template-admin/footer.php');
+	    }
     }
 
     public function tambah()
 	{
-		$data['data'] = "struktur";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-		$this->form_validation->set_rules('tugas', 'tugas', 'required');
-
-		if ( $this->form_validation->run() == FALSE ) {
-			$this->load->view('template-admin/header', $data);
-			$this->load->view('menu-admin/struktur/tambah');
-			$this->load->view('template-admin/footer');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
 		} else {
-			$this->struktur->add();
-			$this->session->set_flashdata('flash','Ditambahkan');
-			redirect('struktur');
+			$data['data'] = "struktur";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+			$this->form_validation->set_rules('tugas', 'tugas', 'required');
+
+			if ( $this->form_validation->run() == FALSE ) {
+				$this->load->view('template-admin/header', $data);
+				$this->load->view('menu-admin/struktur/tambah');
+				$this->load->view('template-admin/footer');
+			} else {
+				$this->struktur->add();
+				$this->session->set_flashdata('flash','Ditambahkan');
+				redirect('struktur');
+			}
 		}
 	}
 
     public function ubah($id)
 	{
-		$data['data'] = "struktur";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-        $data['struktur'] = $this->struktur->getStrukturById($id);
-        
-		$this->form_validation->set_rules('tugas', 'tugas', 'required');
-
-		if ( $this->form_validation->run() == FALSE ) {
-			$this->load->view('template-admin/header', $data);
-			$this->load->view('menu-admin/struktur/ubah', $data);
-			$this->load->view('template-admin/footer');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
 		} else {
-			$this->struktur->update();
-			$this->session->set_flashdata('flash','Diupdate');
-			redirect('struktur');
+			$data['data'] = "struktur";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+	        $data['struktur'] = $this->struktur->getStrukturById($id);
+	        
+			$this->form_validation->set_rules('tugas', 'tugas', 'required');
+
+			if ( $this->form_validation->run() == FALSE ) {
+				$this->load->view('template-admin/header', $data);
+				$this->load->view('menu-admin/struktur/ubah', $data);
+				$this->load->view('template-admin/footer');
+			} else {
+				$this->struktur->update();
+				$this->session->set_flashdata('flash','Diupdate');
+				redirect('struktur');
+			}
 		}
 	}
 
     public function hapus($id)
 	{
-		$this->struktur->delete($id);
-		$this->session->set_flashdata('flash','Dihapus');
-		redirect('struktur');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
+		} else {
+			$this->struktur->delete($id);
+			$this->session->set_flashdata('flash','Dihapus');
+			redirect('struktur');
+		}
 	}
 }
 ?>

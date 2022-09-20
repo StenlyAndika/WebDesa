@@ -46,7 +46,7 @@
 }
 
 .sidebar .logo-details .logo_name{
-    font-size: 22px;
+    font-size: 16px;
     color: var(--white);
     font-weight: 600;
     transition: 0.3s ease;
@@ -81,6 +81,11 @@
 
 .sidebar .nav-links li:hover{
     background: var(--secondary);
+}
+
+.sidebar .nav-links li.list.active,
+.sidebar .nav-links li.list.active a {
+    color: #990000;
 }
 
 .sidebar .nav-links li .icon-link{
@@ -144,7 +149,7 @@
 
 .sidebar .nav-links li .sub-menu a{
     color: var(--white);
-    font-size: 15px;
+    font-size: 13px;
     padding: 5px 0;
     white-space: nowrap;
     opacity: 0.6;
@@ -179,10 +184,23 @@
     display: none;
 }
 
+.sidebar .nav-links li .sub-menu .dropdown-menu-title{
+    display: none;
+}
+
 .sidebar.open .nav-links li .sub-menu .link-name{
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    opacity: 1;
+    display: block; 
+}
+
+.sidebar.open .nav-links li .sub-menu .dropdown-menu-title{
+    font-size: 16px;
+    font-weight: 700;
     opacity: 1;
     display: block;
+    pointer-events: none;
 }
 
 .sidebar .nav-links li .sub-menu.blank{

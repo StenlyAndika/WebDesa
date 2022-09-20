@@ -4,12 +4,10 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<strong>DATA KEPUASAN LAYANAN</strong>
+						<strong>DATA INDEX KEPUASAN MASYARAKAT</strong>
 					</div>
 					<div class="card-header">
-						<?php if(count($kepuasan)<=0) : ?>
-                        	<a href="<?= base_url() ?>kepuasan/tambah" class="btn btn-sm btn-success">Data Baru</a>
-						<?php endif; ?>
+						<a href="<?= base_url() ?>kepuasan/tambah" class="btn btn-sm btn-success">Data Baru</a>
 					</div>
 					<div class="card-body card-block">
 						<?php if ( $this->session->flashdata('flash') ) : ?>
@@ -30,10 +28,9 @@
 									<thead>
 										<tr>
 											<th style="text-align: center;">No</th>
-											<th style="text-align: center;">Sangat Memuaskan</th>
-											<th style="text-align: center;">Memuaskan</th>
-											<th style="text-align: center;">Cukup Memuaskan</th>
-											<th style="text-align: center;">Kurang Kepuasan</th>
+											<th style="text-align: center;">Tahun</th>
+											<th style="text-align: center;">Nilai</th>
+											<th style="text-align: center;">Predikat</th>
 											<th style="text-align: center;">Opsi</th>
 										</tr>
 									</thead>
@@ -41,13 +38,12 @@
 										<?php $no = 0; foreach ($kepuasan as $row) : $no++; ?>
 										<tr>
 											<td style="text-align: center;"><?= $no; ?></td>
-											<td style="text-align: left;"><?= $row['sp']; ?></td>
-											<td style="text-align: left;"><?= $row['p']; ?></td>
-											<td style="text-align: left;"><?= $row['cp']; ?></td>
-											<td style="text-align: left;"><?= $row['kp']; ?></td>
+											<td style="text-align: left;"><?= $row['tahun']; ?></td>
+											<td style="text-align: left;"><?= $row['nilai']; ?></td>
+											<td style="text-align: left;"><?= $row['predikat']; ?></td>
 											<td>
-												<a href="<?= base_url() ?>kepuasan/ubah/<?= $row['id'] ?>" class="btn btn-block btn-sm btn-primary">Ubah</a>
-												<a href="<?= base_url() ?>kepuasan/hapus/<?= $row['id'] ?>" class="btn btn-block btn-sm btn-danger" onclick="return confirm('Hapus data ini?');">Hapus</a>
+												<a href="<?= base_url() ?>kepuasan/ubah/<?= $row['tahun'] ?>" class="btn btn-block btn-sm btn-primary">Ubah</a>
+												<a href="<?= base_url() ?>kepuasan/hapus/<?= $row['tahun'] ?>" class="btn btn-block btn-sm btn-danger" onclick="return confirm('Hapus data ini?');">Hapus</a>
 											</td>
 										</tr>
 										<?php endforeach; ?>

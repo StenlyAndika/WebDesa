@@ -10,6 +10,11 @@
 						<form action="" method="POST" enctype="multipart/form-data">
 							<input type="hidden" class="form-control" name="id" value="<?= $berita['id'] ?>">
 							<div class="form-group">
+								<label>Tanggal</label>
+								<input type="text" class="form-control" name="tgl" id="tgl" value="<?= $berita['tgl'] ?>">
+								<small class="form-text text-danger"><?= form_error('tgl'); ?></small>
+							</div>
+							<div class="form-group">
 								<label>Judul</label>
 								<input type="text" class="form-control" name="judul" value="<?= $berita['judul'] ?>">
 								<small class="form-text text-danger"><?= form_error('judul'); ?></small>

@@ -22,17 +22,13 @@
 			}
 
 			if ($logo) {
-				$oldname = explode(".", $_FILES['logo']['name']);
-				$ext = end($oldname);
-				$new_image = random_string('alnum', 16).'.'.$ext;
-
-				$config['file_name'] = $new_image;
 				$config['allowed_types'] = 'jpg|png|jpeg|pdf';
 				$config['upload_path'] = './upload/logo/';
 
 				$this->load->library('upload', $config);
 
 				if ($this->upload->do_upload('logo')) {
+					$new_image = $this->upload->data('file_name');
 					$this->db->set('logo', $new_image);
 				} else {
 					echo $this->upload->display_errors();

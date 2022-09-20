@@ -4,9 +4,9 @@
             <div class="container" style="text-align: left;">
                 <h2 class="font-weight-bold mb-4" style="text-align: center;">Visi dan Misi<br>
                 <?php if(count($instansi)<=0) : ?>
-                    Nama Desa
+                    Instansi
                 <?php else: ?>
-                    Desa <?= $instansi[0]['nama'] ?>
+                    <?= $instansi[0]['nama'] ?>
                 <?php endif; ?>
                 </h2>
                 <p class="mb-2" style="text-align: center; font-size: 36px; font-weight: bold; color: black;">VISI</p>

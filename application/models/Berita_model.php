@@ -48,7 +48,7 @@
 				}
 			}
 
-			$this->db->set("tgl", date('d-m-Y'));
+			$this->db->set("tgl", $this->input->post('tgl'));
 			$this->db->set("nama", $this->session->userdata('nama'));
 			$this->db->set("judul", $this->input->post('judul'));
 			$this->db->set("isi", $this->input->post('isi'));
@@ -73,7 +73,7 @@
 				}
 			}
 			
-			$this->db->set("tgl", date('d-m-Y'));
+			$this->db->set("tgl", $this->input->post('tgl'));
 			$this->db->set("judul", $this->input->post('judul'));
 			$this->db->set("nama", $this->session->userdata('nama'));
 			$this->db->set("isi", $this->input->post('isi'));

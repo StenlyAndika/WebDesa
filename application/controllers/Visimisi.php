@@ -13,55 +13,71 @@ class Visimisi extends CI_Controller {
 
     public function index()
     {
-		$data['data'] = "visimisi";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-        $data['visimisi'] = $this->visimisi->getAllVisiMisi();
-		$this->load->view('template-admin/header.php', $data);
-        $this->load->view('menu-admin/visimisi/index.php', $data);
-        $this->load->view('template-admin/footer.php');
+    	if ($this->session->userdata('username') == "") {
+			redirect(base_url());
+		} else {
+			$data['data'] = "visimisi";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+	        $data['visimisi'] = $this->visimisi->getAllVisiMisi();
+			$this->load->view('template-admin/header.php', $data);
+	        $this->load->view('menu-admin/visimisi/index.php', $data);
+	        $this->load->view('template-admin/footer.php');
+	    }
     }
 
     public function tambah()
 	{
-		$data['data'] = "visimisi";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-		$this->form_validation->set_rules('visi', 'visi', 'required');
-		$this->form_validation->set_rules('misi', 'misi', 'required');
-		if ( $this->form_validation->run() == FALSE ) {
-			$this->load->view('template-admin/header', $data);
-			$this->load->view('menu-admin/visimisi/tambah');
-			$this->load->view('template-admin/footer');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
 		} else {
-			$this->visimisi->add();
-			$this->session->set_flashdata('flash','Ditambahkan');
-			redirect('visimisi');
+			$data['data'] = "visimisi";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+			$this->form_validation->set_rules('visi', 'visi', 'required');
+			$this->form_validation->set_rules('misi', 'misi', 'required');
+			if ( $this->form_validation->run() == FALSE ) {
+				$this->load->view('template-admin/header', $data);
+				$this->load->view('menu-admin/visimisi/tambah');
+				$this->load->view('template-admin/footer');
+			} else {
+				$this->visimisi->add();
+				$this->session->set_flashdata('flash','Ditambahkan');
+				redirect('visimisi');
+			}
 		}
 	}
 
     public function ubah($id)
 	{
-		$data['data'] = "visimisi";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-        $data['visimisi'] = $this->visimisi->getVisiMisiById($id);
-        
-		$this->form_validation->set_rules('visi', 'visi', 'required');
-		$this->form_validation->set_rules('misi', 'misi', 'required');
-		if ( $this->form_validation->run() == FALSE ) {
-			$this->load->view('template-admin/header', $data);
-			$this->load->view('menu-admin/visimisi/ubah', $data);
-			$this->load->view('template-admin/footer');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
 		} else {
-			$this->visimisi->update();
-			$this->session->set_flashdata('flash','Diupdate');
-			redirect('visimisi');
+			$data['data'] = "visimisi";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+	        $data['visimisi'] = $this->visimisi->getVisiMisiById($id);
+	        
+			$this->form_validation->set_rules('visi', 'visi', 'required');
+			$this->form_validation->set_rules('misi', 'misi', 'required');
+			if ( $this->form_validation->run() == FALSE ) {
+				$this->load->view('template-admin/header', $data);
+				$this->load->view('menu-admin/visimisi/ubah', $data);
+				$this->load->view('template-admin/footer');
+			} else {
+				$this->visimisi->update();
+				$this->session->set_flashdata('flash','Diupdate');
+				redirect('visimisi');
+			}
 		}
 	}
 
     public function hapus($id)
 	{
-		$this->visimisi->delete($id);
-		$this->session->set_flashdata('flash','Dihapus');
-		redirect('visimisi');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
+		} else {
+			$this->visimisi->delete($id);
+			$this->session->set_flashdata('flash','Dihapus');
+			redirect('visimisi');
+		}
 	}
 }
 ?>

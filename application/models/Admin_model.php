@@ -16,14 +16,14 @@
 		public function add()
 		{
 			$this->db->set('username', $this->input->post('username'));
-			$this->db->set('password', $this->input->post('password'));
+			$this->db->set('password', password_hash($this->input->post('password'), PASSWORD_DEFAULT));
 			$this->db->set('nama', $this->input->post('nama'));
 			$this->db->insert('admin');
 		}
 
 		public function update()
 		{
-			$this->db->set('password', $this->input->post('password'));
+			$this->db->set('password', password_hash($this->input->post('password'), PASSWORD_DEFAULT));
 			$this->db->set('nama', $this->input->post('nama'));
 			$this->db->where('username', $this->input->post('username'));
 			$this->db->update('admin');

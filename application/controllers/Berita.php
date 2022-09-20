@@ -13,12 +13,16 @@ class Berita extends CI_Controller {
 
     public function index()
     {
-		$data['data'] = "berita";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-        $data['berita'] = $this->berita->getAllBerita();
-        $this->load->view('template-admin/header.php', $data);
-        $this->load->view('menu-admin/berita/index.php', $data);
-        $this->load->view('template-admin/footer.php');
+    	if ($this->session->userdata('username') == "") {
+			redirect(base_url());
+		} else {
+			$data['data'] = "berita";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+	        $data['berita'] = $this->berita->getAllBerita();
+	        $this->load->view('template-admin/header.php', $data);
+	        $this->load->view('menu-admin/berita/index.php', $data);
+	        $this->load->view('template-admin/footer.php');
+	    }
     }
 
     public function tambah()
@@ -40,28 +44,36 @@ class Berita extends CI_Controller {
 
     public function ubah($id)
 	{
-		$data['data'] = "berita";
-		$data['instansi'] =  $this->db->get('instansi')->result_array();
-        $data['berita'] = $this->berita->getBeritaById($id);
-        
-		$this->form_validation->set_rules('judul', 'Judul', 'required');
-
-		if ( $this->form_validation->run() == FALSE ) {
-			$this->load->view('template-admin/header', $data);
-			$this->load->view('menu-admin/berita/ubah', $data);
-			$this->load->view('template-admin/footer');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
 		} else {
-			$this->berita->update();
-			$this->session->set_flashdata('flash','Diupdate');
-			redirect('berita');
+			$data['data'] = "berita";
+			$data['instansi'] =  $this->db->get('instansi')->result_array();
+	        $data['berita'] = $this->berita->getBeritaById($id);
+	        
+			$this->form_validation->set_rules('judul', 'Judul', 'required');
+
+			if ( $this->form_validation->run() == FALSE ) {
+				$this->load->view('template-admin/header', $data);
+				$this->load->view('menu-admin/berita/ubah', $data);
+				$this->load->view('template-admin/footer');
+			} else {
+				$this->berita->update();
+				$this->session->set_flashdata('flash','Diupdate');
+				redirect('berita');
+			}
 		}
 	}
 
     public function hapus($id)
 	{
-		$this->berita->delete($id);
-		$this->session->set_flashdata('flash','Dihapus');
-		redirect('berita');
+		if ($this->session->userdata('username') == "") {
+			redirect(base_url());
+		} else {
+			$this->berita->delete($id);
+			$this->session->set_flashdata('flash','Dihapus');
+			redirect('berita');
+		}
 	}
 }
 ?>
