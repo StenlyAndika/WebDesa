@@ -56,38 +56,65 @@
                 if( $this->uri->segment(1) == 'berita' ||
                     $this->uri->segment(1) == 'pengumuman' ||
                     $this->uri->segment(1) == 'foto' ||
-                    $this->uri->segment(1) == 'dokumen') {
+                    $this->uri->segment(1) == 'agenda') {
                         echo "showMenu"; 
                 } 
             ?>">
                 <div class="icon-link">
                     <a href="#">
                         <i class='bx bx-upload'></i>
-                        <span class="link-name">Publikasi Data</span>
+                        <span class="link-name">Publikasi</span>
                     </a>
                     <i class='bx bxs-down-arrow arrow'></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="dropdown-menu-title" href="">Publikasi Data</a></li>
+                    <li><a class="dropdown-menu-title" href="">Publikasi</a></li>
                     <li class="list <?= $this->uri->segment(1) == 'berita' ? 'active' : '' ?>"><a href="<?= base_url() ?>berita">Berita</a></li>
                     <li class="list <?= $this->uri->segment(1) == 'foto' ? 'active' : '' ?>"><a href="<?= base_url() ?>foto">Galeri Foto</a></li>
                     <li class="list <?= $this->uri->segment(1) == 'pengumuman' ? 'active' : '' ?>"><a href="<?= base_url() ?>pengumuman">Pengumuman</a></li>
-                    <li class="list <?= $this->uri->segment(1) == 'dokumen' ? 'active' : '' ?>"><a href="<?= base_url() ?>dokumen">Transparansi</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'agenda' ? 'active' : '' ?>"><a href="<?= base_url() ?>agenda">Agenda Kegiatan</a></li>
                 </ul>
             </li>
-            
+            <li class="list <?= $this->uri->segment(1) == 'anggaran' ? 'active' : '' ?>">
+                <a href="<?= base_url() ?>anggaran">
+                    <i class='bx bxs-file-archive'></i>
+                    <span class="link-name">Transparansi Anggaran</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link-name" href="<?= base_url() ?>anggaran">Transparansi Anggaran</a></li>
+                </ul>
+            </li>
+            <li class="list <?= $this->uri->segment(1) == 'penduduk' ? 'active' : '' ?>">
+                <a href="<?= base_url() ?>penduduk">
+                <i class='bx bx-bar-chart-square'></i>
+                    <span class="link-name">Statistik Data Penduduk</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link-name" href="<?= base_url() ?>penduduk">Statistik Data Penduduk</a></li>
+                </ul>
+            </li>
+            <li class="list <?= $this->uri->segment(1) == 'pelayanan' ? 'active' : '' ?>">
+                <a href="<?= base_url() ?>pelayanan">
+                    <i class='bx bx-book-content'></i>
+                    <span class="link-name">Standar Pelayanan</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link-name" href="<?= base_url() ?>pelayanan">Standar Pelayanan</a></li>
+                </ul>
+            </li>
             <li class="
             <?php
                 if( $this->uri->segment(1) == 'profil' ||
                     $this->uri->segment(1) == 'sejarah' ||
                     $this->uri->segment(1) == 'visimisi' ||
-                    $this->uri->segment(1) == 'struktur') {
+                    $this->uri->segment(1) == 'struktur' ||
+                    $this->uri->segment(1) == 'aparatur') {
                         echo "showMenu"; 
                 } 
             ?>">
                 <div class="icon-link">
                     <a href="#">
-                        <i class='bx bxs-file-archive'></i>
+                        <i class='bx bx-buildings'></i>
                         <span class="link-name">Data Desa</span>
                     </a>
                     <i class='bx bxs-down-arrow arrow'></i>
@@ -97,21 +124,13 @@
                     <li class="list <?= $this->uri->segment(1) == 'profil' ? 'active' : '' ?>"><a href="<?= base_url() ?>profil">Profil Desa</a></li>
                     <li class="list <?= $this->uri->segment(1) == 'sejarah' ? 'active' : '' ?>"><a href="<?= base_url() ?>sejarah">Sejarah Desa</a></li>
                     <li class="list <?= $this->uri->segment(1) == 'visimisi' ? 'active' : '' ?>"><a href="<?= base_url() ?>visimisi">Visi & Misi</a></li>
-                    <li class="list <?= $this->uri->segment(1) == 'struktur' ? 'active' : '' ?>"><a href="<?= base_url() ?>visimisi">Struktur Organisasi</a></li>
-                </ul>
-            </li>
-            <li class="list <?= $this->uri->segment(1) == 'pelayanan' ? 'active' : '' ?>">
-                <a href="<?= base_url() ?>pelayanan">
-                    <i class='bx bxs-data'></i>
-                    <span class="link-name">Standar Pelayanan</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link-name" href="<?= base_url() ?>pelayanan">Standar Pelayanan</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'struktur' ? 'active' : '' ?>"><a href="<?= base_url() ?>struktur">Struktur Organisasi</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'aparatur' ? 'active' : '' ?>"><a href="<?= base_url() ?>visimisi">Aparatur Desa</a></li>
                 </ul>
             </li>
             <li class="list <?= $this->uri->segment(1) == 'kepuasan' ? 'active' : '' ?>">
                 <a href="<?= base_url() ?>kepuasan">
-                    <i class='bx bx-user-voice' ></i>
+                    <i class='bx bx-line-chart'></i>
                     <span class="link-name">Index Kepuasan Masyarakat (IKM)</span>
                 </a>
                 <ul class="sub-menu blank">
