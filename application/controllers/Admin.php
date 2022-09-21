@@ -16,7 +16,6 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
-			$data['data'] = "admin";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
 			$data['admin'] = $this->admin->getAllAdmin();
 			$this->load->view('template-admin/header.php', $data);
@@ -30,7 +29,6 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
-			$data['data'] = "admin";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
 			$this->form_validation->set_rules('username', 'username', 'required');
 			$this->form_validation->set_rules('nama', 'nama', 'required');
@@ -53,7 +51,6 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
-			$data['data'] = "admin";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
 			$data['admin'] = $this->admin->getAdminById($id);
 			$this->form_validation->set_rules('nama', 'nama', 'required');

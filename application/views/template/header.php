@@ -146,10 +146,6 @@
                 <a class="nav-link" href="<?= base_url() ?>auth">Masuk</a>
             </li>
         </ul>
-        <div class="wave" id="wave1" style="--i:1;"></div>
-        <div class="wave" id="wave2" style="--i:2;"></div>
-        <div class="wave" id="wave3" style="--i:3;"></div>
-        <div class="wave" id="wave4" style="--i:4;"></div>
     </nav>
     <style>
     </style>

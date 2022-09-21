@@ -1,9 +1,6 @@
 <style>
     .border-left-primary {
-        border-left: 0.25rem solid #4e73df !important;
-    }
-    .border-left-success {
-        border-left: 0.25rem solid #1cc88a !important;
+        border-left: 0.25rem solid var(--primary) !important;
     }
     .no-gutters {
         margin-right: 0;
@@ -33,24 +30,6 @@
                     </div>
                 </a>
             </div>
-            <!-- <div class="col-xl-3 col-md-6 mb-4">
-                <a href="">
-                    <div class="card border-left-success shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Pengaduan</div>
-                                    <div class="text-dark h5 mb-0 font-weight-bold text-gray-800">74</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-flag fa-2x text-dark"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </section>
 </div>

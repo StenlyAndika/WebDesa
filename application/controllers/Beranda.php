@@ -23,7 +23,6 @@ class Beranda extends CI_Controller {
 	{
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
 		if ($this->session->userdata('username') != "") {
-			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
 			$this->load->view('template-admin/header', $data);
@@ -45,7 +44,6 @@ class Beranda extends CI_Controller {
 	{
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
 		if ($this->session->userdata('username') != "") {
-			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
 			$this->load->view('template-admin/header', $data);
@@ -68,7 +66,6 @@ class Beranda extends CI_Controller {
 	{
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
 		if ($this->session->userdata('username') != "") {
-			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
 			$this->load->view('template-admin/header', $data);
@@ -90,7 +87,6 @@ class Beranda extends CI_Controller {
 	{
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
 		if ($this->session->userdata('username') != "") {
-			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
 			$this->load->view('template-admin/header', $data);
@@ -112,7 +108,6 @@ class Beranda extends CI_Controller {
 	{
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
 		if ($this->session->userdata('username') != "") {
-			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
 			$this->load->view('template-admin/header', $data);
@@ -134,7 +129,6 @@ class Beranda extends CI_Controller {
     {
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
         if ($this->session->userdata('username') != "") {
-			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
             $this->load->view('template-admin/header', $data);
@@ -156,7 +150,6 @@ class Beranda extends CI_Controller {
     {
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
         if ($this->session->userdata('username') != "") {
-			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
             $this->load->view('template-admin/header', $data);
@@ -178,7 +171,6 @@ class Beranda extends CI_Controller {
     {
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
         if ($this->session->userdata('username') != "") {
-			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
             $this->load->view('template-admin/header', $data);
@@ -200,7 +192,6 @@ class Beranda extends CI_Controller {
     {
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
 		if ($this->session->userdata('username') != "") {
-			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
 			$this->load->view('template-admin/header', $data);
@@ -222,7 +213,6 @@ class Beranda extends CI_Controller {
     {
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
 		if ($this->session->userdata('username') != "") {
-			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
 			$this->load->view('template-admin/header', $data);
@@ -243,7 +233,6 @@ class Beranda extends CI_Controller {
 	{
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
 		if ($this->session->userdata('username') != "") {
-			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
 			$this->load->view('template-admin/header', $data);

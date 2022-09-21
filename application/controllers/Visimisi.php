@@ -13,16 +13,15 @@ class Visimisi extends CI_Controller {
 
     public function index()
     {
-    	if ($this->session->userdata('username') == "") {
+		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
-			$data['data'] = "visimisi";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-	        $data['visimisi'] = $this->visimisi->getAllVisiMisi();
+			$data['visimisi'] = $this->visimisi->getAllVisiMisi();
 			$this->load->view('template-admin/header.php', $data);
-	        $this->load->view('menu-admin/visimisi/index.php', $data);
-	        $this->load->view('template-admin/footer.php');
-	    }
+			$this->load->view('menu-admin/visimisi/index.php', $data);
+			$this->load->view('template-admin/footer.php');
+		}
     }
 
     public function tambah()
@@ -30,7 +29,6 @@ class Visimisi extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
-			$data['data'] = "visimisi";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
 			$this->form_validation->set_rules('visi', 'visi', 'required');
 			$this->form_validation->set_rules('misi', 'misi', 'required');
@@ -51,10 +49,9 @@ class Visimisi extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
-			$data['data'] = "visimisi";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-	        $data['visimisi'] = $this->visimisi->getVisiMisiById($id);
-	        
+			$data['visimisi'] = $this->visimisi->getVisiMisiById($id);
+
 			$this->form_validation->set_rules('visi', 'visi', 'required');
 			$this->form_validation->set_rules('misi', 'misi', 'required');
 			if ( $this->form_validation->run() == FALSE ) {

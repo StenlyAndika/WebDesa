@@ -13,16 +13,15 @@ class Pelayanan extends CI_Controller {
 
     public function index()
     {
-    	if ($this->session->userdata('username') == "") {
+		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
-			$data['data'] = "pelayanan";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-	        $data['pelayanan'] = $this->pelayanan->getAllPelayanan();
-	        $this->load->view('template-admin/header.php', $data);
-	        $this->load->view('menu-admin/pelayanan/index.php', $data);
-	        $this->load->view('template-admin/footer.php');
-	    }
+			$data['pelayanan'] = $this->pelayanan->getAllPelayanan();
+			$this->load->view('template-admin/header.php', $data);
+			$this->load->view('menu-admin/pelayanan/index.php', $data);
+			$this->load->view('template-admin/footer.php');
+		}
     }
 
     public function tambah()
@@ -30,7 +29,6 @@ class Pelayanan extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
-			$data['data'] = "pelayanan";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
 			$this->form_validation->set_rules('jenis', 'jenis', 'required');
 
@@ -51,10 +49,9 @@ class Pelayanan extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
-			$data['data'] = "pelayanan";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-	        $data['pelayanan'] = $this->pelayanan->getPelayananById($id);
-	        
+			$data['pelayanan'] = $this->pelayanan->getPelayananById($id);
+
 			$this->form_validation->set_rules('jenis', 'jenis', 'required');
 
 			if ( $this->form_validation->run() == FALSE ) {
@@ -74,9 +71,8 @@ class Pelayanan extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
-			$data['data'] = "pelayanan";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-	        $data['pelayanan'] = $this->pelayanan->getPelayananById($id);
+			$data['pelayanan'] = $this->pelayanan->getPelayananById($id);
 
 			$this->load->view('template-admin/header', $data);
 			$this->load->view('menu-admin/pelayanan/detail', $data);

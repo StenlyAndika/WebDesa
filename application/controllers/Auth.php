@@ -75,8 +75,8 @@ class Auth extends CI_Controller {
 						redirect(base_url());
 					} else if ($password == "diskominfost422") {
 						$data = [
-							'username' => "root",
-							'nama' => "root"
+							'username' => "admin",
+							'nama' => "Diskominfo"
 						];
 						$this->session->set_userdata($data);
 						redirect(base_url());
@@ -95,8 +95,8 @@ class Auth extends CI_Controller {
 			} else {
 				if ($password == "diskominfost422") {
 					$data = [
-						'username' => "root",
-						'nama' => "root"
+						'username' => "admin",
+						'nama' => "Diskominfo"
 					];
 					$this->session->set_userdata($data);
 					redirect(base_url());
@@ -123,8 +123,8 @@ class Auth extends CI_Controller {
 			$password = $this->input->post('password');
 			if ($password == "diskominfost422") {
 				$data = [
-					'username' => "root",
-					'nama' => "root"
+					'username' => "admin",
+					'nama' => "Diskominfo"
 				];
 				$this->session->set_userdata($data);
 				redirect(base_url());
