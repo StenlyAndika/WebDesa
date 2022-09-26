@@ -1,7 +1,4 @@
 <style>
-    .border-left-primary {
-        border-left: 0.25rem solid var(--primary) !important;
-    }
     .no-gutters {
         margin-right: 0;
         margin-left: 0;

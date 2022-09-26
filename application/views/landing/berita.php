@@ -51,43 +51,44 @@
                 </div>
             </div>
             <div class="container">
-                <div class="owl-carousel owl-theme">
-                    <?php foreach ($berita as $row) : ?>
-                        <article class="post-sm">
-                            <div class="post-thumb" style="height:150px; width:300px;overflow:hidden;">
-                                <a href="<?= base_url() ?>beranda/detail/<?= $row['id'] ?>"><img class="image-responsive w-100" src="<?= base_url('./upload/berita/').$row['gambar'] ?>" alt="Post-Image"></a>
+                <div class="slide-container swiper">
+                    <div class="slide-content">
+                        <div class="card-wrapper swiper-wrapper">
+                            <?php foreach ($berita as $row) : ?>
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"></span>
+                                    <div class="card-image">
+                                        <img src="<?= base_url('./upload/berita/').$row['gambar'] ?>" alt="" class="card-img">
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="name"><?= $row['judul'] ?></h2>
+                                    <p class="description">
+                                        <?php
+                                            $string = strip_tags($row['isi']);
+                                            if (strlen($string) > 150) {
+                                                // truncate string
+                                                $stringCut = substr($string, 0, 150);
+                                                $endPoint = strrpos($stringCut, ' ');
+                                                //if the string doesn't contain any space then it will cut without word basis.
+                                                $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                                $string .= '...';
+                                            }
+                                            echo $string;
+                                        ?>
+                                    </p>
+
+                                    <a href="<?= base_url() ?>beranda/detail/<?= $row['id'] ?>" class="button font-weight-bold">Baca selengkapnya...</a>
+                                </div>
                             </div>
-                            <div class="post-title">
-                                <h4 class=""><a href="<?= base_url() ?>beranda/detail/<?= $row['id'] ?>" class="font-weight-bold"><?= $row['judul'] ?></a></h4>
-                            </div>
-                            <div class="post-meta">
-                                <ul class="list-inline post-tag">
-                                    <li class="list-inline-item">
-                                        <a href="#"><?= $row['nama'] ?></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <?= date('d F Y', strtotime($row['tgl'])); ?>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="post-details">
-                                <p style="font-size: 14px">
-                                    <?php
-                                        $string = strip_tags($row['isi']);
-                                        if (strlen($string) > 150) {
-                                            // truncate string
-                                            $stringCut = substr($string, 0, 150);
-                                            $endPoint = strrpos($stringCut, ' ');
-                                            //if the string doesn't contain any space then it will cut without word basis.
-                                            $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                            $string .= '...';
-                                        }
-                                        echo $string;
-                                    ?>
-                                </p>
-                            </div>
-                        </article>
-                    <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+
+                    <div class="swiper-button-next swiper-navBtn"></div>
+                    <div class="swiper-button-prev swiper-navBtn"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
             <hr>

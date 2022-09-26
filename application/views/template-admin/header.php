@@ -32,16 +32,35 @@
 <body>
     <div class="sidebar">
         <div class="logo-details">
-            <!-- <i class='bx bxl-c-plus-plus'></i> -->
-            <a href="<?= base_url() ?>"><img style="width: 50px; margin: 15px 15px 0 15px;" src="<?= base_url() ?>assets/img/tablogo.png" alt="img"></a>
+            <a href="<?= base_url() ?>">
+                <?php if($instansi[0]['logo'] == null) : ?>
+                    <img class="logo-img" src="<?= base_url() ?>assets/img/tablogo.png" alt="img">
+                <?php else: ?>
+                    <img class="logo-img" src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>" alt="img">
+                <?php endif; ?>
+            </a>
             <?php if(count($instansi)<=0) : ?>
                 <span class="logo_name">Nama Desa</span>
             <?php else: ?>
-                <span style="margin: 15px 0 0 0;" class="logo_name"><?= $instansi[0]['nama'] ?></span>
+                <span style="margin: 15px 0 0 0;" class="logo_name">Desa <?= $instansi[0]['nama'] ?></span>
             <?php endif; ?>
         </div>
+        <hr style="margin-bottom: 0px">
         <ul class="nav-links">
-            <li class="list">
+            <div class="profile-details">
+                <div class="profile-content">
+                    <img class="logo-img" src="<?= base_url('./assets/img/avatar.png') ?>" alt="profile">
+                </div>
+                <div class="name-job">
+                    <div class="profile-name"><?= $this->session->userdata('nama') ?></div>
+                    <div class="job">Operator</div>
+                </div>
+                <a href="<?= base_url() ?>auth/logout">
+                    <i style="font-size: 28px; font-weight: 700; color: var(--primary);" class='bx bx-log-out'></i>
+                </a>
+            </div>
+            <hr style="margin-top: 0px">
+            <li class="list <?= $this->uri->segment(1) == '' ? 'active' : '' ?>">
                 <a href="<?= base_url() ?>">
                     <i class='bx bxs-dashboard'></i>
                     <span class="link-name">Dashboard</span>
@@ -51,13 +70,13 @@
                 </ul>
             </li>
 
-            <li class="
+            <li class="list
             <?php
                 if( $this->uri->segment(1) == 'berita' ||
                     $this->uri->segment(1) == 'pengumuman' ||
                     $this->uri->segment(1) == 'foto' ||
                     $this->uri->segment(1) == 'agenda') {
-                        echo "showMenu"; 
+                        echo "showMenu";
                 } 
             ?>">
                 <div class="icon-link">
@@ -102,7 +121,7 @@
                     <li><a class="link-name" href="<?= base_url() ?>pelayanan">Standar Pelayanan</a></li>
                 </ul>
             </li>
-            <li class="
+            <li class="list
             <?php
                 if( $this->uri->segment(1) == 'profil' ||
                     $this->uri->segment(1) == 'sejarah' ||
@@ -145,18 +164,6 @@
                 <ul class="sub-menu blank">
                     <li><a class="link-name" href="<?= base_url() ?>admin">Data Operator</a></li>
                 </ul>
-            </li>
-            <li>
-                <div class="profile-details">
-                    <div class="profile-content">
-                        <img src="<?= base_url('./assets/img/avatar.png') ?>" alt="profile">
-                    </div>
-                    <div class="name-job">
-                        <div class="profile-name"><?= $this->session->userdata('nama') ?></div>
-                        <div class="job">Operator</div>
-                    </div>
-                    <a href="<?= base_url() ?>auth/logout"><i style="font-size: 28px; font-weight: 700;" class='bx bx-log-out'></i></a>
-                </div>
             </li>
         </ul>
     </div>

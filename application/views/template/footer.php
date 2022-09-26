@@ -108,13 +108,14 @@
     <!-- JAVASCRIPTS -->
     <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="<?= base_url() ?>assets/plugins/slick/slick.min.js"></script>
-    <script src="<?= base_url() ?>assets/plugins/fancybox/jquery.fancybox.min.js"></script>
-    <script src="<?= base_url() ?>assets/plugins/syotimer/jquery.syotimer.min.js"></script>
-    <script src="<?= base_url() ?>assets/plugins/aos/aos.js"></script>
+    <!-- <script src="<?= base_url() ?>assets/plugins/slick/slick.min.js"></script> -->
+    <!-- <script src="<?= base_url() ?>assets/plugins/fancybox/jquery.fancybox.min.js"></script> -->
+    <!-- <script src="<?= base_url() ?>assets/plugins/syotimer/jquery.syotimer.min.js"></script> -->
+    <!-- <script src="<?= base_url() ?>assets/plugins/aos/aos.js"></script> -->
     <script src="<?= base_url() ?>assets/plugins/datatables/datatables.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
-    <script src="<?= base_url() ?>assets/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <!-- <script src="<?= base_url() ?>assets/plugins/owl-carousel/owl.carousel.min.js"></script> -->
+    <script src="<?= base_url() ?>assets/plugins/swiper/swiper-bundle.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/marquee/jquery.marquee.min.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/d6482bd15d.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -128,24 +129,24 @@
             });
         });
         $(document).ready(function() {
-            $(".owl-carousel").owlCarousel({
-                autoplay:true,
-                autoplayTimeout:5000,
-                loop:true,
-                margin:10,
-                lazyLoad: true,
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:2
-                    },
-                    1000:{
-                        items:3
-                    }
-                }
-            });
+            // $(".owl-carousel").owlCarousel({
+            //     autoplay:true,
+            //     autoplayTimeout:5000,
+            //     loop:true,
+            //     margin:10,
+            //     lazyLoad: true,
+            //     responsive:{
+            //         0:{
+            //             items:1
+            //         },
+            //         600:{
+            //             items:2
+            //         },
+            //         1000:{
+            //             items:3
+            //         }
+            //     }
+            // });
 
             $('#datatable').DataTable({
                 'paging': true,

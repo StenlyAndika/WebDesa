@@ -18,14 +18,15 @@
 
     <!-- PLUGINS CSS STYLE -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/themify-icons/themify-icons.css">
+    <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/slick/slick.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/slick/slick-theme.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/fancybox/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/aos/aos.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/aos/aos.css"> -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datatables/datatables.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datepicker/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/owl-carousel/assets/owl.carousel.min.css">
+    <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/owl-carousel/assets/owl.carousel.min.css"> -->
+    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/swiper/swiper-bundle.min.css">
 
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="<?= base_url()?>assets/css/style.css">
