@@ -13,15 +13,16 @@ class Pengumuman extends CI_Controller {
 
     public function index()
     {
-		if ($this->session->userdata('username') == "") {
+    	if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "pengumuman";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
-			$this->load->view('template-admin/header.php', $data);
-			$this->load->view('menu-admin/pengumuman/index.php', $data);
-			$this->load->view('template-admin/footer.php');
-		}
+	        $data['pengumuman'] = $this->pengumuman->getAllPengumuman();
+	        $this->load->view('template-admin/header.php', $data);
+	        $this->load->view('menu-admin/pengumuman/index.php', $data);
+	        $this->load->view('template-admin/footer.php');
+	    }
     }
 
     public function tambah()
@@ -29,6 +30,7 @@ class Pengumuman extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "pengumuman";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
 			$this->form_validation->set_rules('judul', 'Judul', 'required');
 
@@ -49,9 +51,10 @@ class Pengumuman extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "pengumuman";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-			$data['pengumuman'] = $this->pengumuman->getPengumumanById($id);
-
+	        $data['pengumuman'] = $this->pengumuman->getPengumumanById($id);
+	        
 			$this->form_validation->set_rules('judul', 'Judul', 'required');
 
 			if ( $this->form_validation->run() == FALSE ) {

@@ -4,7 +4,7 @@
         position: relative;
     }
 </style>
-<section class="user-login section" style="padding: 100px 0;">
+<section class="user-login section mb-4">
 	<div class="container aac">
 		<div class="row">
 			<div class="col-12">
@@ -18,7 +18,7 @@
 							<div class="image align-self-center"><img class="img-fluid" src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>"></div>
 						<?php endif; ?>
 					<?php endif; ?>
-					<div class="content text-center">
+					<div class="content text-center bg-white">
 					<?php if ( $this->session->flashdata('flash') ) : ?>
 						<div class="row mt-2">
 							<div class="col-md-12">

@@ -17,41 +17,6 @@
                                 <a href="#"><img src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>" width="150px"></a>
                             <?php endif; ?>
                         <?php endif; ?>
-                            <ul class="social-icon list-inline">
-                                <li class="list-inline-item">
-                                    <?php if(count($instansi)<=0) : ?>
-                                        <a href="https://www.facebook.com/" target="_blank"><i class="ti-facebook"></i></a>
-                                    <?php else: ?>
-                                        <?php if($instansi[0]['fb'] == null) : ?>
-                                            <a href="https://www.facebook.com/" target="_blank"><i class="ti-facebook"></i></a>
-                                        <?php else: ?>
-                                            <a href="<?= $instansi[0]['fb'] ?>" target="_blank"><i class="ti-facebook"></i></a>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
-                                </li>
-                                <li class="list-inline-item">
-                                    <?php if(count($instansi)<=0) : ?>
-                                        <a href="https://twitter.com/" target="_blank"><i class="ti-twitter"></i></a>
-                                    <?php else: ?>
-                                        <?php if($instansi[0]['tw'] == null) : ?>
-                                            <a href="https://twitter.com/" target="_blank"><i class="ti-twitter"></i></a>
-                                        <?php else: ?>
-                                            <a href="<?= $instansi[0]['tw'] ?>" target="_blank"><i class="ti-twitter"></i></a>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
-                                </li>
-                                <li class="list-inline-item">
-                                    <?php if(count($instansi)<=0) : ?>
-                                        <a href="https://instagram.com/" target="_blank"><i class="ti-instagram"></i></a>
-                                    <?php else: ?>
-                                        <?php if($instansi[0]['ig'] == null) : ?>
-                                            <a href="https://instagram.com/" target="_blank"><i class="ti-instagram"></i></a>
-                                        <?php else: ?>
-                                            <a href="<?= $instansi[0]['ig'] ?>" target="_blank"><i class="ti-instagram"></i></a>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-3 col-6 mt-5 mt-lg-0">
@@ -108,13 +73,9 @@
     <!-- JAVASCRIPTS -->
     <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/bootstrap/bootstrap.min.js"></script>
-    <!-- <script src="<?= base_url() ?>assets/plugins/slick/slick.min.js"></script> -->
-    <!-- <script src="<?= base_url() ?>assets/plugins/fancybox/jquery.fancybox.min.js"></script> -->
-    <!-- <script src="<?= base_url() ?>assets/plugins/syotimer/jquery.syotimer.min.js"></script> -->
-    <!-- <script src="<?= base_url() ?>assets/plugins/aos/aos.js"></script> -->
     <script src="<?= base_url() ?>assets/plugins/datatables/datatables.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!-- <script src="<?= base_url() ?>assets/plugins/owl-carousel/owl.carousel.min.js"></script> -->
+    <script src="<?= base_url() ?>assets/plugins/owl-carousel/owl.carousel.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/swiper/swiper-bundle.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/marquee/jquery.marquee.min.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/d6482bd15d.js" crossorigin="anonymous"></script>
@@ -127,26 +88,35 @@
             $('.marquee').marquee({
                 speed: 60
             });
-        });
-        $(document).ready(function() {
-            // $(".owl-carousel").owlCarousel({
-            //     autoplay:true,
-            //     autoplayTimeout:5000,
-            //     loop:true,
-            //     margin:10,
-            //     lazyLoad: true,
-            //     responsive:{
-            //         0:{
-            //             items:1
-            //         },
-            //         600:{
-            //             items:2
-            //         },
-            //         1000:{
-            //             items:3
-            //         }
-            //     }
-            // });
+            
+            $(".news-carousel").owlCarousel({
+                autoplay:true,
+                autoplayTimeout:5000,
+                loop:true,
+                margin:10,
+                lazyLoad: true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:3
+                    }
+                }
+            });
+
+            $(".panel-carousel").owlCarousel({
+                autoplay:true,
+                autoplayTimeout:5000,
+                loop:true,
+                lazyLoad: true,
+                items:1
+            });
+
+            $('.owl-dots').remove();
 
             $('#datatable').DataTable({
                 'paging': true,

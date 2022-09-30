@@ -4,11 +4,11 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<strong>PROFIL INSTANSI</strong>
+						<strong>PROFIL DESA</strong>
 					</div>
 					<div class="card-header">
 						<?php if(count($profil)<=0) : ?>
-                        	<a href="<?= base_url() ?>profil/tambah" class="btn btn-sm btn-success">Data Baru</a>
+							<a href="<?= base_url() ?>profil/tambah" class="btn btn-sm btn-success">Data Baru</a>
 						<?php endif; ?>
 					</div>
 					<div class="card-body card-block">
@@ -24,41 +24,61 @@
 								</div>
 							</div>
 						<?php endif; ?>
-						<form>
-							<div class="table-responsive asd">
-								<table id="datatable" class="table-bordered cxz" width="99%">
-									<thead>
-										<tr>
-											<th style="text-align: center;">No</th>
-											<th style="text-align: center;">Nama Instansi</th>
-											<th style="text-align: center;">Email</th>
-											<th style="text-align: center;">Whatsapp</th>
-											<th style="text-align: center;">FB/Twitter/IG</th>
-											<th style="text-align: center;">Opsi</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php $no = 0; foreach ($profil as $row) : $no++; ?>
-										<tr>
-											<td style="text-align: center;"><?= $no; ?></td>
-											<td style="text-align: left;"><?= $row['nama']; ?></td>
-											<td style="text-align: left;"><?= $row['email']; ?></td>
-											<td style="text-align: left;"><?= $row['wa']; ?></td>
-											<td style="text-align: left;">
-												<?= $row['fb']; ?>
-												<br><?= $row['tw']; ?>
-												<br><?= $row['ig']; ?>
-											</td>
-											<td>
-												<a href="<?= base_url() ?>profil/ubah/<?= $row['id'] ?>" class="btn btn-block btn-sm btn-primary">Ubah</a>
-												<a href="<?= base_url() ?>profil/hapus/<?= $row['id'] ?>" class="btn btn-block btn-sm btn-danger" onclick="return confirm('Hapus data ini?');">Hapus</a>
-											</td>
-										</tr>
-										<?php endforeach; ?>
-									</tbody>
-								</table>
+						<?php if(count($profil)!=0) : ?>
+						<?php foreach($profil as $row) : ?>
+						<form action="" method="POST" enctype="multipart/form-data">
+							<input type="hidden" class="form-control" name="id" value="<?= $row['id'] ?>">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Nama Desa</label>
+										<input type="text" class="form-control" name="nama" value="<?= $row['nama'] ?>">
+										<small class="form-text text-danger"><?= form_error('nama'); ?></small>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Alamat Email</label>
+										<input type="text" class="form-control" name="email" value="<?= $row['email'] ?>">
+										<small class="form-text text-danger"><?= form_error('email'); ?></small>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Logo Desa</label>
+										<input type="file" class="form-control" name="logo" class="form-control-file">
+										<small class="form-text text-danger"><?= form_error('logo'); ?></small>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Nomor Whatsapp</label>
+										<input type="text" class="form-control" name="wa" value="<?= $row['wa'] ?>">
+										<small class="form-text text-danger"><?= form_error('wa'); ?></small>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Alamat Desa</label>
+										<input type="text" class="form-control" name="alamat" value="<?= $row['alamat'] ?>">
+										<small class="form-text text-danger"><?= form_error('logo'); ?></small>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<button type="submit" name="simpan" class="btn btn-sm btn-primary">Simpan</button>
+								<a class="btn btn-sm btn-success" href="<?= base_url() ?>profil">Kembali</a>
 							</div>
 						</form>
+						<?php endforeach; ?>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>

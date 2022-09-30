@@ -6,7 +6,7 @@
     
     <?php if(count($instansi)<=0) : ?>
         <link rel="icon" href="<?= base_url('./assets/img/tablogo.png') ?>">
-        <title>Website Resmi Instansi Pemerintah</title>
+        <title>Website Resmi Nama Desa</title>
     <?php else: ?>
         <title>Website Resmi <?= $instansi[0]['nama'] ?></title>
         <?php if($instansi[0]['logo'] == null) : ?>
@@ -18,14 +18,9 @@
 
     <!-- PLUGINS CSS STYLE -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/bootstrap/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/slick/slick.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/slick/slick-theme.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/fancybox/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/aos/aos.css"> -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datatables/datatables.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datepicker/css/bootstrap-datepicker.css">
-    <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/owl-carousel/assets/owl.carousel.min.css"> -->
+    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/owl-carousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/swiper/swiper-bundle.min.css">
 
     <!-- CUSTOM CSS -->
@@ -66,6 +61,7 @@
                 left: 0;
                 z-index: -2;
             }
+            
             .acidsb {
                 font-family: "Poppins", sans-serif;
                 font-weight: bold;
@@ -95,10 +91,10 @@
                 </td>
                 <td>
                     <?php if(count($instansi)<=0) : ?>
-                        <h3 class="stroke-double" title="Instansi Pemerintah" style="text-align: left;">Instansi Pemerintah</h3>
+                        <h3 class="stroke-double" title="Nama Desa" style="text-align: left;">Nama Desa</h3>
                         <h5 class="acidsb" style="text-align: left;">Pemerintah Kota Sungai Penuh</h5>
                     <?php else: ?>
-                        <h3 class="stroke-double" title="<?= $instansi[0]['nama'] ?>" style="text-align: left;"><?= $instansi[0]['nama'] ?></h3>
+                        <h3 class="stroke-double" title="Desa <?= $instansi[0]['nama'] ?>" style="text-align: left;">Desa <?= $instansi[0]['nama'] ?></h3>
                         <h5 class="acidsb" style="text-align: left;">Pemerintah Kota Sungai Penuh</h5>
                     <?php endif; ?>
                     </td>
@@ -112,10 +108,10 @@
         <div class="collapse navbar-collapse" id="navbarNav" style="padding-right: 15px;">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url() ?>">Beranda</a>
+                <a class="nav-link text-white" href="<?= base_url() ?>">Beranda</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Profil</a>
+                <a class="nav-link text-white dropdown-toggle" href="#" data-toggle="dropdown">Profil</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="<?= base_url() ?>beranda/sejarah">Sejarah</a></li>
                     <li><a class="dropdown-item" href="<?= base_url() ?>beranda/visimisi">Visi & Misi</a></li>
@@ -123,28 +119,28 @@
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Galeri</a>
+                <a class="nav-link text-white dropdown-toggle" href="#" data-toggle="dropdown">Galeri</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="<?= base_url() ?>beranda/foto">Foto</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Pelayanan</a>
+                <a class="nav-link text-white dropdown-toggle" href="#" data-toggle="dropdown">Pelayanan</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="<?= base_url() ?>beranda/pelayanan">Standar Pelayanan</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url() ?>beranda/dokumen">Publikasi</a>
+                <a class="nav-link text-white" href="<?= base_url() ?>beranda/dokumen">Publikasi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url() ?>beranda/pengumuman">Pengumuman</a>
+                <a class="nav-link text-white" href="<?= base_url() ?>beranda/pengumuman">Pengumuman</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url() ?>kontak">Kontak Kami</a>
+                <a class="nav-link text-white" href="<?= base_url() ?>kontak">Kontak Kami</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url() ?>auth">Masuk</a>
+                <a class="nav-link text-white" href="<?= base_url() ?>auth">Masuk</a>
             </li>
         </ul>
     </nav>

@@ -13,15 +13,16 @@ class Sejarah extends CI_Controller {
 
     public function index()
     {
-		if ($this->session->userdata('username') == "") {
+    	if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "sejarah";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-			$data['sejarah'] = $this->sejarah->getAllSejarah();
+	        $data['sejarah'] = $this->sejarah->getAllSejarah();
 			$this->load->view('template-admin/header.php', $data);
-			$this->load->view('menu-admin/sejarah/index.php', $data);
-			$this->load->view('template-admin/footer.php');
-		}
+	        $this->load->view('menu-admin/sejarah/index.php', $data);
+	        $this->load->view('template-admin/footer.php');
+	    }
     }
 
     public function tambah()
@@ -29,6 +30,7 @@ class Sejarah extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "sejarah";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
 			$this->form_validation->set_rules('sejarah', 'sejarah', 'required');
 
@@ -49,9 +51,10 @@ class Sejarah extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "sejarah";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-			$data['sejarah'] = $this->sejarah->getSejarahById($id);
-
+	        $data['sejarah'] = $this->sejarah->getSejarahById($id);
+	        
 			$this->form_validation->set_rules('sejarah', 'sejarah', 'required');
 
 			if ( $this->form_validation->run() == FALSE ) {

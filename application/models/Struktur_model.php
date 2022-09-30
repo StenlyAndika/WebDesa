@@ -17,15 +17,18 @@
 		{
 			$struktur = $_FILES['struktur']['name'];
 
-			if (!is_dir('./upload/struktur/')) {
-				mkdir('./upload/struktur/', 0777, true);
-			}
-
 			if ($struktur) {
+
+				if (!is_dir('./upload/struktur/')) {
+					mkdir('./upload/struktur/', 0777, true);
+				}
+	
+				$config['file_name'] = random_string('alnum', 16);
 				$config['allowed_types'] = 'jpg|png|jpeg|pdf';
 				$config['upload_path'] = './upload/struktur/';
-
-				$this->load->library('upload', $config);
+	
+				$this->load->library('upload');
+				$this->upload->initialize($config);
 
 				if ($this->upload->do_upload('struktur')) {
 					$new_image = $this->upload->data('file_name');
@@ -43,15 +46,18 @@
 		{
 			$struktur = $_FILES['struktur']['name'];
 
-			if (!is_dir('./upload/struktur/')) {
-				mkdir('./upload/struktur/', 0777, true);
-			}
-			
 			if ($struktur) {
+				
+				if (!is_dir('./upload/struktur/')) {
+					mkdir('./upload/struktur/', 0777, true);
+				}
+	
+				$config['file_name'] = random_string('alnum', 16);
 				$config['allowed_types'] = 'jpg|png|jpeg|pdf';
 				$config['upload_path'] = './upload/struktur/';
-
-				$this->load->library('upload', $config);
+	
+				$this->load->library('upload');
+				$this->upload->initialize($config);
 
 				if ($this->upload->do_upload('struktur')) {
 					$new_image = $this->upload->data('file_name');

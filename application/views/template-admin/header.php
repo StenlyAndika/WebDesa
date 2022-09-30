@@ -33,16 +33,20 @@
     <div class="sidebar">
         <div class="logo-details">
             <a href="<?= base_url() ?>">
-                <?php if($instansi[0]['logo'] == null) : ?>
+                <?php if(count($instansi)<=0) : ?>
                     <img class="logo-img" src="<?= base_url() ?>assets/img/tablogo.png" alt="img">
                 <?php else: ?>
-                    <img class="logo-img" src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>" alt="img">
+                    <?php if($instansi[0]['logo'] == null) : ?>
+                        <img class="logo-img" src="<?= base_url() ?>assets/img/tablogo.png" alt="img">
+                    <?php else: ?>
+                        <img class="logo-img" src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>" alt="img">
+                    <?php endif; ?>
                 <?php endif; ?>
             </a>
             <?php if(count($instansi)<=0) : ?>
                 <span class="logo_name">Nama Desa</span>
             <?php else: ?>
-                <span style="margin: 15px 0 0 0;" class="logo_name">Desa <?= $instansi[0]['nama'] ?></span>
+                <span style="margin: 15px 0 0 0;" class="logo_name"><?= $instansi[0]['nama'] ?></span>
             <?php endif; ?>
         </div>
         <hr style="margin-bottom: 0px">
@@ -126,8 +130,7 @@
                 if( $this->uri->segment(1) == 'profil' ||
                     $this->uri->segment(1) == 'sejarah' ||
                     $this->uri->segment(1) == 'visimisi' ||
-                    $this->uri->segment(1) == 'struktur' ||
-                    $this->uri->segment(1) == 'aparatur') {
+                    $this->uri->segment(1) == 'struktur') {
                         echo "showMenu"; 
                 } 
             ?>">
@@ -144,7 +147,15 @@
                     <li class="list <?= $this->uri->segment(1) == 'sejarah' ? 'active' : '' ?>"><a href="<?= base_url() ?>sejarah">Sejarah Desa</a></li>
                     <li class="list <?= $this->uri->segment(1) == 'visimisi' ? 'active' : '' ?>"><a href="<?= base_url() ?>visimisi">Visi & Misi</a></li>
                     <li class="list <?= $this->uri->segment(1) == 'struktur' ? 'active' : '' ?>"><a href="<?= base_url() ?>struktur">Struktur Organisasi</a></li>
-                    <li class="list <?= $this->uri->segment(1) == 'aparatur' ? 'active' : '' ?>"><a href="<?= base_url() ?>visimisi">Aparatur Desa</a></li>
+                </ul>
+            </li>
+            <li class="list <?= $this->uri->segment(1) == 'aparatur' ? 'active' : '' ?>">
+                <a href="<?= base_url() ?>aparatur">
+                    <i class='bx bx-group'></i>
+                    <span class="link-name">Data Aparatur Desa</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link-name" href="<?= base_url() ?>aparatur">Data Aparatur Desa</a></li>
                 </ul>
             </li>
             <li class="list <?= $this->uri->segment(1) == 'kepuasan' ? 'active' : '' ?>">

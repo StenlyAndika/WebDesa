@@ -11,7 +11,7 @@
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="form-group">
-										<label>Nama Instansi</label>
+										<label>Nama Desa</label>
 										<input type="text" class="form-control" name="nama" value="<?= set_value('nama'); ?>">
 										<small class="form-text text-danger"><?= form_error('nama'); ?></small>
 									</div>
@@ -28,7 +28,7 @@
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="form-group">
-										<label>Logo Instansi</label>
+										<label>Logo Desa</label>
 										<input type="file" class="form-control" name="logo" class="form-control-file">
 										<small class="form-text text-danger"><?= form_error('logo'); ?></small>
 									</div>
@@ -45,50 +45,9 @@
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="form-group">
-										<label>Nama Kepala/Pimpinan</label>
-										<input type="text" class="form-control" name="kepala" value="<?= set_value('kepala'); ?>">
-										<small class="form-text text-danger"><?= form_error('kepala'); ?></small>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label>Link Facebook</label>
-										<input type="text" class="form-control" name="fb" value="<?= set_value('fb'); ?>">
-										<small class="form-text text-danger"><?= form_error('fb'); ?></small>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label>Foto Kepala/Pimpinan</label>
-										<input type="file" class="form-control" name="fotokepala" class="form-control-file">
-										<small class="form-text text-danger"><?= form_error('fotokepala'); ?></small>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label>Link Twitter</label>
-										<input type="text" class="form-control" name="tw" value="<?= set_value('tw'); ?>">
-										<small class="form-text text-danger"><?= form_error('tw'); ?></small>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-lg-6">
-								<div class="form-group">
-										<label>Alamat Instansi</label>
+										<label>Alamat Desa</label>
 										<input type="text" class="form-control" name="alamat" value="<?= set_value('alamat'); ?>">
 										<small class="form-text text-danger"><?= form_error('alamat'); ?></small>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label>Link Instagram</label>
-										<input type="text" class="form-control" name="ig" value="<?= set_value('ig'); ?>">
-										<small class="form-text text-danger"><?= form_error('ig'); ?></small>
 									</div>
 								</div>
 							</div>

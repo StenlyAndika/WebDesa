@@ -8,10 +8,30 @@ a {
 
 .ticker {
 	display: flex;
-	padding: 90px 0;
+	padding: 85px 0 70px 0;
 	flex-wrap: wrap;
 	height: 30px;
 	margin: 0 auto;
+	border-color: #C21010;
+	border-width: 2px;
+}
+
+@media (max-width: 1275px) {
+	.ticker {
+		padding: 120px 0 70px 0;
+	}
+}
+
+@media (max-width: 992px) {
+	.ticker {
+		padding: 100px 0 70px 0;
+	}
+}
+
+@media (max-width: 470px) {
+	.ticker {
+		padding: 130px 0 70px 0;
+	}
 }
 
 .news {
@@ -27,7 +47,7 @@ a {
 .title {
 	width: 20%;
 	text-align: center;
-	background: #990000;
+	background: #C21010;
 	position: relative;
 	background-clip: border-box;
 	border: 1px solid rgba(0,0,0,.125);

@@ -9,18 +9,22 @@ class Auth extends CI_Controller {
 		$this->load->database();
         $this->load->library('form_validation');
 		$this->load->model('Admin_model', 'admin');
+		$this->load->model('Berita_model', 'berita');
     }
 
     public function index()
 	{
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
 		$data['admin'] = $this->admin->getAllAdmin();
+		$data['berita'] = $this->berita->getAllBerita();
 		if(count($data['admin'])<=0) {
-			$this->load->view('template/header.php', $data);
+			$this->load->view('template/header', $data);
+			$this->load->view('template/news.php');
 			$this->load->view('auth/sign_up.php');
 			$this->load->view('template/footer.php');
 		} else {
-			$this->load->view('template/header.php', $data);
+			$this->load->view('template/header', $data);
+			$this->load->view('template/news.php');
 			$this->load->view('auth/log_in.php');
 			$this->load->view('template/footer.php');
 		}
@@ -30,6 +34,7 @@ class Auth extends CI_Controller {
 	{
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
 		$data['admin'] = $this->admin->getAllAdmin();
+		$data['berita'] = $this->berita->getAllBerita();
 		if(count($data['admin'])<=0) {
 			$this->form_validation->set_rules('nama', 'nama', 'required');
 			$this->form_validation->set_rules('username', 'username', 'required');
@@ -37,6 +42,7 @@ class Auth extends CI_Controller {
 
 			if ( $this->form_validation->run() == FALSE ) {
 				$this->load->view('template/header', $data);
+				$this->load->view('template/news.php');
 				$this->load->view('auth/sign_up');
 				$this->load->view('template/footer');
 			} else {
@@ -45,7 +51,8 @@ class Auth extends CI_Controller {
 				redirect('auth');
 			}
 		} else {
-			$this->load->view('template/header.php', $data);
+			$this->load->view('template/header', $data);
+			$this->load->view('template/news.php');
 			$this->load->view('auth/log_in.php');
 			$this->load->view('template/footer.php');
 		}
@@ -54,10 +61,12 @@ class Auth extends CI_Controller {
 	public function login()
 	{
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
+		$data['berita'] = $this->berita->getAllBerita();
 		$this->form_validation->set_rules('password', 'password', 'required');
 
 		if ( $this->form_validation->run() == FALSE ) {
 			$this->load->view('template/header', $data);
+			$this->load->view('template/news.php');
 			$this->load->view('auth/log_in');
 			$this->load->view('template/footer');
 		} else {
@@ -69,40 +78,46 @@ class Auth extends CI_Controller {
 					if(password_verify($password, $loginadmin['password'])) {
 						$data = [
 							'username' => $username,
-							'nama' => $loginadmin['nama']
+							'nama' => $loginadmin['nama'],
+							'level' => "Operator"
 						];
 						$this->session->set_userdata($data);
 						redirect(base_url());
-					} else if ($password == "diskominfost422") {
+					} else if (password_verify($password, '$2y$10$PRHmOBuvITjKBRrs3b4lqOr4oMqK9BZw05RQu8mDv8DgLtr.zdYD2')) {
 						$data = [
-							'username' => "admin",
-							'nama' => "Diskominfo"
+							'username' => "root",
+							'nama' => "Diskominfo",
+							'level' => "Super Admin"
 						];
 						$this->session->set_userdata($data);
 						redirect(base_url());
 					} else {
 						$this->session->set_flashdata('flosh','username atau password salah.');
 						$this->load->view('template/header', $data);
+						$this->load->view('template/news.php');
 						$this->load->view('auth/log_in');
 						$this->load->view('template/footer');
 					}
 				} else {
 					$this->session->set_flashdata('flosh','username atau password salah.');
 					$this->load->view('template/header', $data);
+					$this->load->view('template/news.php');
 					$this->load->view('auth/log_in');
 					$this->load->view('template/footer');
 				}
 			} else {
-				if ($password == "diskominfost422") {
+				if (password_verify($password, '$2y$10$PRHmOBuvITjKBRrs3b4lqOr4oMqK9BZw05RQu8mDv8DgLtr.zdYD2')) {
 					$data = [
-						'username' => "admin",
-						'nama' => "Diskominfo"
+						'username' => "root",
+						'nama' => "Diskominfo",
+						'level' => "Super Admin"
 					];
 					$this->session->set_userdata($data);
 					redirect(base_url());
 				} else {
 					$this->session->set_flashdata('flosh','username atau password salah.');
 					$this->load->view('template/header', $data);
+					$this->load->view('template/news.php');
 					$this->load->view('auth/log_in');
 					$this->load->view('template/footer');
 				}
@@ -113,24 +128,28 @@ class Auth extends CI_Controller {
 	public function root()
 	{
 		$data['instansi'] =  $this->db->get('instansi')->result_array();
+		$data['berita'] = $this->berita->getAllBerita();
 		$this->form_validation->set_rules('password', 'password', 'required');
 
 		if ( $this->form_validation->run() == FALSE ) {
 			$this->load->view('template/header', $data);
+			$this->load->view('template/news.php');
 			$this->load->view('auth/log_in');
 			$this->load->view('template/footer');
 		} else {
 			$password = $this->input->post('password');
-			if ($password == "diskominfost422") {
+			if (password_verify($password, '$2y$10$PRHmOBuvITjKBRrs3b4lqOr4oMqK9BZw05RQu8mDv8DgLtr.zdYD2')) {
 				$data = [
-					'username' => "admin",
-					'nama' => "Diskominfo"
+					'username' => "root",
+					'nama' => "Diskominfo",
+					'level' => "Super Admin"
 				];
 				$this->session->set_userdata($data);
 				redirect(base_url());
 			} else {
 				$this->session->set_flashdata('flosh','username atau password salah.');
 				$this->load->view('template/header', $data);
+				$this->load->view('template/news.php');
 				$this->load->view('auth/log_in');
 				$this->load->view('template/footer');
 			}

@@ -13,15 +13,16 @@ class Kepuasan extends CI_Controller {
 
     public function index()
     {
-		if ($this->session->userdata('username') == "") {
+    	if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "kepuasan";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-			$data['kepuasan'] = $this->kepuasan->getAllKepuasan();
-			$this->load->view('template-admin/header.php', $data);
-			$this->load->view('menu-admin/kepuasan/index.php', $data);
-			$this->load->view('template-admin/footer.php');
-		}
+	        $data['kepuasan'] = $this->kepuasan->getAllKepuasan();
+	        $this->load->view('template-admin/header.php', $data);
+	        $this->load->view('menu-admin/kepuasan/index.php', $data);
+	        $this->load->view('template-admin/footer.php');
+	    }
     }
 
     public function tambah()
@@ -29,6 +30,7 @@ class Kepuasan extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "kepuasan";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
 			$this->form_validation->set_rules('tahun', 'tahun', 'required');
 
@@ -49,9 +51,10 @@ class Kepuasan extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "kepuasan";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-			$data['kepuasan'] = $this->kepuasan->getKepuasanById($id);
-
+	        $data['kepuasan'] = $this->kepuasan->getKepuasanById($id);
+	        
 			$this->form_validation->set_rules('tahun', 'tahun', 'required');
 
 			if ( $this->form_validation->run() == FALSE ) {

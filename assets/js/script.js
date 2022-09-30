@@ -44,32 +44,37 @@ const sru = ScrollReveal({
 
 sru.reveal('.pop-up',{});
 
-var swiper = new Swiper(".slide-content", {
-  slidesPerView: 3,
-  spaceBetween: 25,
-  loop: true,
-  centerSlide: 'true',
-  fade: 'true',
-  grabCursor: 'true',
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    dynamicBullets: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
+(function ($) {
+  'use strict';
+  
+  $(window).on('scroll', function () {
+		//.Scroll to top show/hide
+    var scrollToTop = $('.scroll-top-to'),
+      scroll = $(window).scrollTop();
+    if (scroll >= 200) {
+      scrollToTop.fadeIn(200);
+    } else {
+      scrollToTop.fadeOut(100);
+    }
+  });
+	// // scroll-to-top
+  $('.scroll-top-to').on('click', function () {
+    $('body,html').animate({
+      scrollTop: 0
+    }, 500);
+    return false;
+  });
 
-  breakpoints:{
-      0: {
-          slidesPerView: 1,
-      },
-      520: {
-          slidesPerView: 2,
-      },
-      950: {
-          slidesPerView: 2,
-      },
-  },
-});
+  $(document).ready(function() {
+    
+    if ($(window).width() < 992) {
+      $('.main-nav .dropdown-toggle').on('click', function () {
+        $(this).siblings('.dropdown-menu').animate({
+          height: 'toggle'
+        }, 300);
+      });
+    }
+
+  });
+
+})(jQuery);

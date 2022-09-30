@@ -13,15 +13,16 @@ class Dokumen extends CI_Controller {
 
     public function index()
     {
-		if ($this->session->userdata('username') == "") {
+    	if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "dokumen";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-			$data['dokumen'] = $this->dokumen->getAllDokumen();
-			$this->load->view('template-admin/header.php', $data);
-			$this->load->view('menu-admin/dokumen/index.php', $data);
-			$this->load->view('template-admin/footer.php');
-		}
+	        $data['dokumen'] = $this->dokumen->getAllDokumen();
+	        $this->load->view('template-admin/header.php', $data);
+	        $this->load->view('menu-admin/dokumen/index.php', $data);
+	        $this->load->view('template-admin/footer.php');
+	    }
     }
 
     public function tambah()
@@ -29,6 +30,7 @@ class Dokumen extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "dokumen";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
 			$this->form_validation->set_rules('tahun', 'Tahun', 'required');
 			$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
@@ -50,8 +52,9 @@ class Dokumen extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect(base_url());
 		} else {
+			$data['data'] = "dokumen";
 			$data['instansi'] =  $this->db->get('instansi')->result_array();
-			$data['dokumen'] = $this->dokumen->getDokumenById($id);
+	        $data['dokumen'] = $this->dokumen->getDokumenById($id);
 			
 			$this->form_validation->set_rules('tahun', 'Tahun', 'required');
 			$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');

@@ -16,16 +16,19 @@
 		public function add()
 		{
 			$upload_image = $_FILES['gambar']['name'];
-			
-			if (!is_dir('./upload/pelayanan/')) {
-				mkdir('./upload/pelayanan/', 0777, true);
-			}
 
 			if ($upload_image) {
+
+				if (!is_dir('./upload/pelayanan/')) {
+					mkdir('./upload/pelayanan/', 0777, true);
+				}
+	
+				$config['file_name'] = random_string('alnum', 16);
 				$config['allowed_types'] = 'jpg|png|jpeg|pdf';
 				$config['upload_path'] = './upload/pelayanan/';
-
-				$this->load->library('upload', $config);
+	
+				$this->load->library('upload');
+				$this->upload->initialize($config);
 
 				if ($this->upload->do_upload('gambar')) {
 					$new_image = $this->upload->data('file_name');
@@ -44,15 +47,18 @@
 		{
 			$upload_image = $_FILES['gambar']['name'];
 
-			if (!is_dir('./upload/pelayanan/')) {
-				mkdir('./upload/pelayanan/', 0777, true);
-			}
-
 			if ($upload_image) {
+
+				if (!is_dir('./upload/pelayanan/')) {
+					mkdir('./upload/pelayanan/', 0777, true);
+				}
+	
+				$config['file_name'] = random_string('alnum', 16);
 				$config['allowed_types'] = 'jpg|png|jpeg|pdf';
 				$config['upload_path'] = './upload/pelayanan/';
-
-				$this->load->library('upload', $config);
+	
+				$this->load->library('upload');
+				$this->upload->initialize($config);
 
 				if ($this->upload->do_upload('gambar')) {
 					$new_image = $this->upload->data('file_name');
