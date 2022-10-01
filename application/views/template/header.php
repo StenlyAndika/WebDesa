@@ -8,7 +8,7 @@
         <link rel="icon" href="<?= base_url('./assets/img/tablogo.png') ?>">
         <title>Website Resmi Nama Desa</title>
     <?php else: ?>
-        <title>Website Resmi <?= $instansi[0]['nama'] ?></title>
+        <title>Website Resmi Desa <?= $instansi[0]['nama'] ?></title>
         <?php if($instansi[0]['logo'] == null) : ?>
             <link rel="icon" href="<?= base_url('./assets/img/tablogo.png') ?>">
         <?php else: ?>
@@ -115,6 +115,14 @@
                     <li><a class="dropdown-item" href="<?= base_url() ?>beranda/sejarah">Sejarah</a></li>
                     <li><a class="dropdown-item" href="<?= base_url() ?>beranda/visimisi">Visi & Misi</a></li>
                     <li><a class="dropdown-item" href="<?= base_url() ?>beranda/struktur">Struktur Organisasi</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-white dropdown-toggle" href="#" data-toggle="dropdown">Statistik Penduduk</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="<?= base_url() ?>beranda/jekel">Berdasarkan Jenis Kelamin</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url() ?>beranda/umur">Berdasarkan Umur</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url() ?>beranda/pendidikan">Berdasarkan Pendidikan</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">

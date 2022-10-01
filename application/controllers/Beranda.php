@@ -7,6 +7,7 @@ class Beranda extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->database();
+		$this->load->library('form_validation');
 		$this->load->model('Pengumuman_model', 'pengumuman');
 		$this->load->model('Berita_model', 'berita');
 		$this->load->model('Sejarah_model', 'sejarah');
@@ -16,9 +17,9 @@ class Beranda extends CI_Controller {
 		$this->load->model('Pelayanan_model', 'pelayanan');
 		$this->load->model('Dokumen_model', 'dokumen');
 		$this->load->model('Kontak_model', 'kontak');
-		$this->load->model('Kepuasan_model', 'kepuasan');
 		$this->load->model('Aparatur_model', 'aparatur');
 		$this->load->model('StatistikJekel_model', 'sjkl');
+		$this->load->model('Admin_model', 'admin');
 	}
 	
 	public function index()
@@ -27,14 +28,12 @@ class Beranda extends CI_Controller {
 		if ($this->session->userdata('username') != "") {
 			$data['data'] = "dashboard";
 			$data['kontak'] = $this->kontak->getAllKontak();
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['jmlkontak'] = $this->kontak->getJmlKontak();
 			$this->load->view('template-admin/header', $data);
 			$this->load->view('menu-admin/dashboard.php', $data);
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['aparatur'] = $this->aparatur->getAllAparatur();
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
@@ -56,12 +55,12 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/header', $data);
 			$this->load->view('template-admin/footer');
 		} else {
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['berita3'] = $this->berita->getBeritaById($id);
 			$data['berita'] = $this->berita->getAllBerita();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['aparatur'] = $this->aparatur->getAllAparatur();
 			$data['berita2'] = $this->berita->getBeritaRandom();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('landing/detail_berita.php', $data);
@@ -81,10 +80,10 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['aparatur'] = $this->aparatur->getAllAparatur();
 			$data['sejarah'] = $this->sejarah->getAllSejarah();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('menu-profil/sejarah.php', $data);
@@ -104,10 +103,10 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['aparatur'] = $this->aparatur->getAllAparatur();
 			$data['visimisi'] = $this->visimisi->getAllVisiMisi();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('menu-profil/visimisi.php', $data);
@@ -127,10 +126,10 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['aparatur'] = $this->aparatur->getAllAparatur();
 			$data['struktur'] = $this->struktur->getAllStruktur();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('menu-profil/struktur.php', $data);
@@ -150,10 +149,10 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['aparatur'] = $this->aparatur->getAllAparatur();
             $data['foto'] = $this->foto->getAllFoto();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
             $this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
             $this->load->view('menu-galeri/foto.php', $data);
@@ -173,10 +172,10 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['aparatur'] = $this->aparatur->getAllAparatur();
             $data['pelayanan'] = $this->pelayanan->getAllPelayanan();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
             $this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
             $this->load->view('menu-pelayanan/pelayanan.php', $data);
@@ -196,10 +195,10 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['aparatur'] = $this->aparatur->getAllAparatur();
             $data['pelayanan'] = $this->pelayanan->getPelayananById($id);
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
             $this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
             $this->load->view('menu-pelayanan/detail.php', $data);
@@ -219,9 +218,9 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['aparatur'] = $this->aparatur->getAllAparatur();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['keysearch'] = "";
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
@@ -242,7 +241,9 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
+			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
+			$data['aparatur'] = $this->aparatur->getAllAparatur();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['keysearch'] = $this->input->post('cari');
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
@@ -263,12 +264,34 @@ class Beranda extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
-			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['aparatur'] = $this->aparatur->getAllAparatur();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('landing/pengumuman.php', $data);
+			$this->load->view('template/panel.php');
+			$this->load->view('template/footer.php');
+		}
+	}
+
+	public function jekel()
+	{
+		$data['instansi'] =  $this->db->get('instansi')->result_array();
+		if ($this->session->userdata('username') != "") {
+			$data['data'] = "dashboard";
+			$data['kontak'] = $this->kontak->getAllKontak();
+			$data['jmlkontak'] = $this->kontak->getJmlKontak();
+			$this->load->view('template-admin/header', $data);
+			$this->load->view('template-admin/footer');
+		} else {
+			$data['berita'] = $this->berita->getAllBerita();
+			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
+			$data['aparatur'] = $this->aparatur->getAllAparatur();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
+			$this->load->view('template/header.php', $data);
+			$this->load->view('template/news.php');
+			$this->load->view('menu-statistik/jekel.php', $data);
 			$this->load->view('template/panel.php');
 			$this->load->view('template/footer.php');
 		}

@@ -22,7 +22,7 @@
 						<div class="title-text">
 							<h3>Buat akun baru</h3>
 						</div>
-						<?= form_open_multipart('auth/daftar'); ?>
+						<?= form_open_multipart('login/daftar'); ?>
 							<input class="form-control main" type="nama" name="nama" placeholder="Nama" required>
 							<input class="form-control main" type="username" name="username" placeholder="Username" required>
 							<input class="form-control main" type="password" name="password" placeholder="Password" required>

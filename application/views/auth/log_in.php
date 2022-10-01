@@ -45,7 +45,7 @@
 						<div class="title-text">
 							<h3>Masuk</h3>
 						</div>
-						<?= form_open_multipart('auth/login'); ?>
+						<?= form_open_multipart('login'); ?>
 							<input class="form-control main" type="username" name="username" placeholder="Username">
 							<input class="form-control main" type="password" name="password" placeholder="Password">
 							<button type="submit" class="btn btn-main-md">Masuk</button>

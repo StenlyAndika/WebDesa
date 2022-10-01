@@ -59,7 +59,7 @@
                     <div class="profile-name"><?= $this->session->userdata('nama') ?></div>
                     <div class="job">Operator</div>
                 </div>
-                <a href="<?= base_url() ?>auth/logout">
+                <a href="<?= base_url() ?>login/logout">
                     <i style="font-size: 28px; font-weight: 700; color: var(--primary);" class='bx bx-log-out'></i>
                 </a>
             </div>
