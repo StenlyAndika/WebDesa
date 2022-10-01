@@ -27,7 +27,6 @@
     background: var(--sidebar-color);
     z-index: 100;
     transition: 0.5s;
-    overflow: hidden;
 }
 
 .sidebar.open{

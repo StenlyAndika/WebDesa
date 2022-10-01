@@ -18,11 +18,11 @@
 
     <!-- PLUGINS CSS STYLE -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datatables/datatables.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datepicker/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/owl-carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/swiper/swiper-bundle.min.css">
-
+    
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="<?= base_url()?>assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url()?>assets/css/news-ticker.css">
@@ -85,7 +85,6 @@
                         <img src="<?= base_url('./assets/img/tablogo.png') ?>" alt="logo" width="50px">
                     <?php else: ?>
                         <img src="<?= base_url('./assets/img/tablogo.png') ?>" alt="logo" width="50px">
-                        <!-- <img src="<?= base_url('./upload/logo/').$instansi[0]['logo'] ?>" alt="logo" width="50px"> -->
                     <?php endif; ?>
                 <?php endif; ?>
                 </td>
@@ -134,13 +133,7 @@
                 <a class="nav-link text-white" href="<?= base_url() ?>beranda/dokumen">Publikasi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="<?= base_url() ?>beranda/pengumuman">Pengumuman</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link text-white" href="<?= base_url() ?>kontak">Kontak Kami</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="<?= base_url() ?>auth">Masuk</a>
             </li>
         </ul>
     </nav>

@@ -43,7 +43,7 @@
 							</div>
 							<div class="form-group">
 								<button type="submit" name="simpan" class="btn btn-sm btn-primary">Submit</button>
-								<a class="btn btn-sm btn-success" href="<?= base_url() ?>admin">Kembali</a>
+								<a class="btn btn-sm btn-success" href="<?= base_url() ?>aparatur">Kembali</a>
 							</div>
 						</form>
 					</div>

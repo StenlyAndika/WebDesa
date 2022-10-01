@@ -4,10 +4,10 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<strong>PENGUMUMAN</strong>
+						<strong>STATISTIK DATA PENDUDUK BERDASARKAN JENIS KELAMIN</strong>
 					</div>
 					<div class="card-header">
-                        <a href="<?= base_url() ?>pengumuman/tambah" class="btn btn-sm btn-success">Data Baru</a>
+                        <a href="<?= base_url() ?>statistikjekel/tambah" class="btn btn-sm btn-success">Data Baru</a>
 					</div>
 					<div class="card-body card-block">
 						<?php if ( $this->session->flashdata('flash') ) : ?>
@@ -28,20 +28,20 @@
 									<thead>
 										<tr>
 											<th style="text-align: center;">No</th>
-											<th style="text-align: center;">Judul</th>
-											<th style="text-align: center;">Nama File</th>
+											<th style="text-align: center;">Jenis Kelamin</th>
+											<th style="text-align: center;">Jumlah</th>
 											<th style="text-align: center;">Opsi</th>
 										</tr>
 									</thead>
 									<tbody>
-										<?php $no = 0; foreach ($pengumuman as $row) : $no++; ?>
+										<?php $no = 0; foreach ($statistikjekel as $row) : $no++; ?>
 										<tr>
 											<td style="text-align: center;"><?= $no; ?></td>
-											<td style="text-align: left;"><?= $row['judul']; ?></td>
-											<td style="text-align: left;"><?= $row['namafile']; ?></td>
+											<td style="text-align: left;"><?= $row['jekel']; ?></td>
+											<td style="text-align: left;"><?= $row['jumlah']; ?></td>
 											<td>
-												<a href="<?= base_url() ?>pengumuman/ubah/<?= $row['id'] ?>" class="btn btn-block btn-sm btn-primary">Ubah</a>
-												<a href="<?= base_url() ?>pengumuman/hapus/<?= $row['id'] ?>" class="btn btn-block btn-sm btn-danger" onclick="return confirm('Hapus data ini?');">Hapus</a>
+												<a href="<?= base_url() ?>statistikjekel/ubah/<?= $row['id'] ?>" class="btn btn-block btn-sm btn-primary">Ubah</a>
+												<a href="<?= base_url() ?>statistikjekel/hapus/<?= $row['id'] ?>" class="btn btn-block btn-sm btn-danger" onclick="return confirm('Hapus data ini?');">Hapus</a>
 											</td>
 										</tr>
 										<?php endforeach; ?>

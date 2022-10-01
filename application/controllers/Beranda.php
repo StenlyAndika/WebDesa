@@ -18,6 +18,7 @@ class Beranda extends CI_Controller {
 		$this->load->model('Kontak_model', 'kontak');
 		$this->load->model('Kepuasan_model', 'kepuasan');
 		$this->load->model('Aparatur_model', 'aparatur');
+		$this->load->model('StatistikJekel_model', 'sjkl');
 	}
 	
 	public function index()
@@ -36,6 +37,7 @@ class Beranda extends CI_Controller {
 			$data['kepuasan'] =  $this->kepuasan->getAllKepuasan();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
 			$data['aparatur'] = $this->aparatur->getAllAparatur();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('landing/berita.php', $data);

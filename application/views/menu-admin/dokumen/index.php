@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<strong>DOKUMEN PUBLIK</strong>
+						<strong>TRANSPARANSI ANGGARAN</strong>
 					</div>
 					<div class="card-header">
                         <a href="<?= base_url() ?>dokumen/tambah" class="btn btn-sm btn-success">Data Baru</a>

@@ -74,10 +74,10 @@
     <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/datatables/datatables.min.js"></script>
-    <script src="<?= base_url() ?>assets/plugins/datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="<?= base_url() ?>assets/plugins/datepicker/js/bootstrap-datepicker.js"></script>
     <script src="<?= base_url() ?>assets/plugins/owl-carousel/owl.carousel.min.js"></script>
-    <script src="<?= base_url() ?>assets/plugins/swiper/swiper-bundle.min.js"></script>
-    <script src="<?= base_url() ?>assets/plugins/marquee/jquery.marquee.min.js" type="text/javascript"></script>
+    <script src="<?= base_url() ?>assets/plugins/marquee/jquery.marquee.min.js"></script>
+    <script src="<?= base_url() ?>assets/plugins/chart/chart.min.js"></script>
     <script src="https://kit.fontawesome.com/d6482bd15d.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     
@@ -88,6 +88,32 @@
             $('.marquee').marquee({
                 speed: 60
             });
+
+        var ctx = document.getElementById("myPieChart");
+        var myPieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    <?php
+                        foreach ($statistikjekel as $row) {
+                            echo "'".$row['jekel']."',";
+                        }
+                    ?>
+                ],
+                datasets: [{
+                    backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+                    hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                    hoverBorderColor: "rgba(234, 236, 244, 1)",
+                    data: [
+                        <?php
+                            foreach ($statistikjekel as $row) {
+                                echo "'".$row['jumlah']."',";
+                            }
+                        ?>
+                    ],
+                }],
+            },
+        });
             
             $(".news-carousel").owlCarousel({
                 autoplay:true,

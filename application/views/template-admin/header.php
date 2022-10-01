@@ -98,22 +98,13 @@
                     <li class="list <?= $this->uri->segment(1) == 'agenda' ? 'active' : '' ?>"><a href="<?= base_url() ?>agenda">Agenda Kegiatan</a></li>
                 </ul>
             </li>
-            <li class="list <?= $this->uri->segment(1) == 'anggaran' ? 'active' : '' ?>">
-                <a href="<?= base_url() ?>anggaran">
+            <li class="list <?= $this->uri->segment(1) == 'dokumen' ? 'active' : '' ?>">
+                <a href="<?= base_url() ?>dokumen">
                     <i class='bx bxs-file-archive'></i>
                     <span class="link-name">Transparansi Anggaran</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link-name" href="<?= base_url() ?>anggaran">Transparansi Anggaran</a></li>
-                </ul>
-            </li>
-            <li class="list <?= $this->uri->segment(1) == 'penduduk' ? 'active' : '' ?>">
-                <a href="<?= base_url() ?>penduduk">
-                <i class='bx bx-bar-chart-square'></i>
-                    <span class="link-name">Statistik Data Penduduk</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link-name" href="<?= base_url() ?>penduduk">Statistik Data Penduduk</a></li>
+                    <li><a class="link-name" href="<?= base_url() ?>dokumen">Transparansi Anggaran</a></li>
                 </ul>
             </li>
             <li class="list <?= $this->uri->segment(1) == 'pelayanan' ? 'active' : '' ?>">
@@ -123,6 +114,28 @@
                 </a>
                 <ul class="sub-menu blank">
                     <li><a class="link-name" href="<?= base_url() ?>pelayanan">Standar Pelayanan</a></li>
+                </ul>
+            </li>
+            <li class="list
+            <?php
+                if( $this->uri->segment(1) == 'jekel' ||
+                    $this->uri->segment(1) == 'umur' ||
+                    $this->uri->segment(1) == 'pendidikan') {
+                        echo "showMenu"; 
+                } 
+            ?>">
+                <div class="icon-link">
+                    <a href="#">
+                    <i class='bx bx-bar-chart-square'></i>
+                        <span class="link-name">Statistik Data Penduduk</span>
+                    </a>
+                    <i class='bx bxs-down-arrow arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="dropdown-menu-title" href="">Statistik Data Penduduk</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'jekel' ? 'active' : '' ?>"><a href="<?= base_url() ?>statistikjekel">Statistik Jenis Kelamin</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'umur' ? 'active' : '' ?>"><a href="<?= base_url() ?>statistikumur">Statistik Umur</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'pendidikan' ? 'active' : '' ?>"><a href="<?= base_url() ?>statistikpendidikan">Statistik Pendidikan</a></li>
                 </ul>
             </li>
             <li class="list
@@ -156,15 +169,6 @@
                 </a>
                 <ul class="sub-menu blank">
                     <li><a class="link-name" href="<?= base_url() ?>aparatur">Data Aparatur Desa</a></li>
-                </ul>
-            </li>
-            <li class="list <?= $this->uri->segment(1) == 'kepuasan' ? 'active' : '' ?>">
-                <a href="<?= base_url() ?>kepuasan">
-                    <i class='bx bx-line-chart'></i>
-                    <span class="link-name">Index Kepuasan Masyarakat (IKM)</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link-name" href="<?= base_url() ?>kepuasan">Index Kepuasan Masyarakat (IKM)</a></li>
                 </ul>
             </li>
             <li class="list <?= $this->uri->segment(1) == 'admin' ? 'active' : '' ?>">
