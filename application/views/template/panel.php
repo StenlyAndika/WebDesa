@@ -27,7 +27,7 @@
                     <thead>
                         <tr class="table-primary font-weight-bold">
                             <th>Jenis Kelamin</th>
-                            <th>Jumlah</th>
+                            <th class="text-center">Jumlah</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,12 +35,12 @@
                     $total=0; $no = 0; foreach ($statistikjekel as $row) : $no++; ?>
                     <tr class="font-weight-bold">
                         <td><?= $row['jekel']; ?></td>
-                        <td><?= $row['jumlah']; ?></td>
+                        <td class="text-center"><?= $row['jumlah']; ?></td>
                     </tr>
                     <?php $total+=$row['jumlah']; endforeach; ?>
                     <tr class="table-primary font-weight-bold">
                         <td>Total</td>
-                        <td><?= $total; ?></td>
+                        <td class="text-center"><?= $total; ?></td>
                     </tr>
                 </table>
             </div>

@@ -6,9 +6,9 @@
                     <h2 class="font-weight-bold aaz" style="color: #000;">Website Resmi</h2>
                     <h2 class="font-weight-bold aas" style="color: #2e7eed;">
                         <?php if(count($instansi)<=0) : ?>
-                            Instansi
+                            Nama Desa
                         <?php else: ?>
-                            <?= $instansi[0]['nama'] ?>
+                            Desa <?= $instansi[0]['nama'] ?>
                         <?php endif; ?>
                     </h2>
                 </div>
