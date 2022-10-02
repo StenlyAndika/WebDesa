@@ -11,12 +11,12 @@
 							<input type="hidden" class="form-control" name="id" value="<?= $aparatur['id']; ?>">
 							<div class="form-group">
 								<label>Jenis Kelamin</label>
-								<select name="jekel" class="form-control">
-								<?php foreach ($jekel as $rowjkl) : ?>
-									<option value="<?= $rowjkl; ?>" <? if($aparatur['jekel'] == $rowjkl) { echo "selected"; } ?>><?= $rowjkl; ?></option>
+								<select name="umur" class="form-control">
+								<?php foreach ($umur as $rowumur) : ?>
+									<option value="<?= $rowumur; ?>" <? if($aparatur['umur'] == $rowumur) { echo "selected"; } ?>><?= $rowjkl; ?></option>
 								<?php endforeach; ?>
 								</select>
-								<small class="form-text text-danger"><?= form_error('jekel'); ?></small>
+								<small class="form-text text-danger"><?= form_error('umur'); ?></small>
 							</div>
 							<div class="form-group">
 								<label>Jumlah</label>

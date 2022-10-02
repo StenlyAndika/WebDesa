@@ -10,13 +10,13 @@
 						<form action="" method="POST" enctype="multipart/form-data">
 							<input type="hidden" class="form-control" name="id" value="<?= $aparatur['id']; ?>">
 							<div class="form-group">
-								<label>Jenis Kelamin</label>
-								<select name="jekel" class="form-control">
-								<?php foreach ($jekel as $rowjkl) : ?>
-									<option value="<?= $rowjkl; ?>" <? if($aparatur['jekel'] == $rowjkl) { echo "selected"; } ?>><?= $rowjkl; ?></option>
+								<label>Pendidikan</label>
+								<select name="pendidikan" class="form-control">
+								<?php foreach ($pendidikan as $rowpendidikan) : ?>
+									<option value="<?= $rowpendidikan; ?>" <? if($aparatur['pendidikan'] == $rowpendidikan) { echo "selected"; } ?>><?= $rowjkl; ?></option>
 								<?php endforeach; ?>
 								</select>
-								<small class="form-text text-danger"><?= form_error('jekel'); ?></small>
+								<small class="form-text text-danger"><?= form_error('pendidikan'); ?></small>
 							</div>
 							<div class="form-group">
 								<label>Jumlah</label>
@@ -25,7 +25,7 @@
 							</div>
 							<div class="form-group">
 								<button type="submit" name="simpan" class="btn btn-sm btn-primary">Submit</button>
-								<a class="btn btn-sm btn-success" href="<?= base_url() ?>statistikjekel">Kembali</a>
+								<a class="btn btn-sm btn-success" href="<?= base_url() ?>statistikpendidikan">Kembali</a>
 							</div>
 						</form>
 					</div>

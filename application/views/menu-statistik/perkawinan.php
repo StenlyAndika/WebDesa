@@ -2,11 +2,11 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="container" style="text-align: left;">
-            <h2 class="font-weight-bold mb-2" style="text-align: center;">Statistik Data Jenis Kelamin</h2>
+            <h2 class="font-weight-bold mb-2" style="text-align: center;">Statistik Data Perkawinan</h2>
                 <div class="d-flex flex-row">
                     <div class="container">
                         <div class="chart-pie pt-2 pb-2">
-                            <canvas id="jekelPieChart"></canvas>
+                            <canvas id="kawinPieChart"></canvas>
                         </div>
                     </div>
                     <div class="container">
@@ -16,17 +16,17 @@
                                 <thead>
                                     <tr class="table-primary">
                                         <th scope="col">No</th>
-                                        <th scope="col">Jenis Kelamin</th>
+                                        <th scope="col">Perkawinan</th>
                                         <th scope="col">Jumlah</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php
                                 $color = array("#4e73df", "#1cc88a", "#36b9cc", "#38E54D", "#D800A6", "#FF884B", "#D2001A");
-                                $total=0; $i = 0; $no = 0; foreach ($statistikjekel as $row) : $no++; ?>
+                                $total=0; $i = 0; $no = 0; foreach ($statistikperkawinan as $row) : $no++; ?>
                                 <tr class="font-weight-bold">
                                     <th scope="row" style="background: <?= $color[$i]; ?>;" class="font-weight-bold text-white text-center"><?= $no; ?></th>
-                                    <td><?= $row['jekel']; ?></td>
+                                    <td><?= $row['perkawinan']; ?></td>
                                     <td><?= $row['jumlah']; ?></td>
                                 </tr>
                                 <?php $total+=$row['jumlah']; $i++; endforeach; ?>

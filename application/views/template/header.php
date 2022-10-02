@@ -120,9 +120,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link text-white dropdown-toggle" href="#" data-toggle="dropdown">Statistik Penduduk</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="<?= base_url() ?>beranda/jekel">Berdasarkan Jenis Kelamin</a></li>
-                    <li><a class="dropdown-item" href="<?= base_url() ?>beranda/umur">Berdasarkan Umur</a></li>
-                    <li><a class="dropdown-item" href="<?= base_url() ?>beranda/pendidikan">Berdasarkan Pendidikan</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url() ?>beranda/jekel">Data Jenis Kelamin</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url() ?>beranda/umur">Data Umur</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url() ?>beranda/perkawinan">Data Perkawinan</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">

@@ -58,7 +58,6 @@
                             <h6>Link Terkait</h6>
                             <ul>
                                 <li><a href="http://sungaipenuhkota.go.id/">Website Kota Sungai Penuh</a></li>
-                                <li><a href="http://lpse.sungaipenuhkota.go.id">LPSE Kota Sungai Penuh</a></li>
                             </ul>
                         </div>
                     </div>
@@ -88,32 +87,6 @@
             $('.marquee').marquee({
                 speed: 60
             });
-
-        var ctx = document.getElementById("myPieChart");
-        var myPieChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: [
-                    <?php
-                        foreach ($statistikjekel as $row) {
-                            echo "'".$row['jekel']."',";
-                        }
-                    ?>
-                ],
-                datasets: [{
-                    backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-                    hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-                    hoverBorderColor: "rgba(234, 236, 244, 1)",
-                    data: [
-                        <?php
-                            foreach ($statistikjekel as $row) {
-                                echo "'".$row['jumlah']."',";
-                            }
-                        ?>
-                    ],
-                }],
-            },
-        });
             
             $(".news-carousel").owlCarousel({
                 autoplay:true,
@@ -155,6 +128,84 @@
                     "url":"https://cdn.datatables.net/plug-ins/1.11.5/i18n/id.json",
                     "sEmptyTable":"Tidak ada data."
                 }
+            });
+
+            let arrow = document.querySelectorAll("#jekelPieChart");
+            for (var i = 0; i < arrow.length; i++) {
+                var jekelPieChart = new Chart(arrow[i], {
+                    type: 'doughnut',
+                    data: {
+                        labels: [
+                            <?php
+                                foreach ($statistikjekel as $row) {
+                                    echo "'".$row['jekel']."',";
+                                }
+                            ?>
+                        ],
+                        datasets: [{
+                            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+                            hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                            hoverBorderColor: "rgba(234, 236, 244, 1)",
+                            data: [
+                                <?php
+                                    foreach ($statistikjekel as $row) {
+                                        echo "'".$row['jumlah']."',";
+                                    }
+                                ?>
+                            ],
+                        }],
+                    },
+                });
+            }
+
+            var upc = document.getElementById("umurPieChart");
+            var umurPieChart = new Chart(upc, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        <?php
+                            foreach ($statistikumur as $row2) {
+                                echo "'".$row2['umur']."',";
+                            }
+                        ?>
+                    ],
+                    datasets: [{
+                        backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc", "#38E54D", "#D800A6", "#FF884B", "#D2001A"],
+                        hoverBorderColor: "rgba(234, 236, 244, 1)",
+                        data: [
+                            <?php
+                                foreach ($statistikumur as $row2) {
+                                    echo "'".$row2['jumlah']."',";
+                                }
+                            ?>
+                        ],
+                    }],
+                },
+            });
+
+            var kpc = document.getElementById("kawinPieChart");
+            var kawinPieChart = new Chart(kpc, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        <?php
+                            foreach ($statistikperkawinan as $row3) {
+                                echo "'".$row3['perkawinan']."',";
+                            }
+                        ?>
+                    ],
+                    datasets: [{
+                        backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc", "#38E54D", "#D800A6", "#FF884B", "#D2001A"],
+                        hoverBorderColor: "rgba(234, 236, 244, 1)",
+                        data: [
+                            <?php
+                                foreach ($statistikperkawinan as $row3) {
+                                    echo "'".$row3['jumlah']."',";
+                                }
+                            ?>
+                        ],
+                    }],
+                },
             });
         });
     </script>

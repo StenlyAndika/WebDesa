@@ -118,9 +118,9 @@
             </li>
             <li class="list
             <?php
-                if( $this->uri->segment(1) == 'jekel' ||
-                    $this->uri->segment(1) == 'umur' ||
-                    $this->uri->segment(1) == 'pendidikan') {
+                if( $this->uri->segment(1) == 'statistikjekel' ||
+                    $this->uri->segment(1) == 'statistikumur' ||
+                    $this->uri->segment(1) == 'perkawinan') {
                         echo "showMenu"; 
                 } 
             ?>">
@@ -133,9 +133,9 @@
                 </div>
                 <ul class="sub-menu">
                     <li><a class="dropdown-menu-title" href="">Statistik Data Penduduk</a></li>
-                    <li class="list <?= $this->uri->segment(1) == 'jekel' ? 'active' : '' ?>"><a href="<?= base_url() ?>statistikjekel">Statistik Jenis Kelamin</a></li>
-                    <li class="list <?= $this->uri->segment(1) == 'umur' ? 'active' : '' ?>"><a href="<?= base_url() ?>statistikumur">Statistik Umur</a></li>
-                    <li class="list <?= $this->uri->segment(1) == 'pendidikan' ? 'active' : '' ?>"><a href="<?= base_url() ?>statistikpendidikan">Statistik Pendidikan</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'statistikjekel' ? 'active' : '' ?>"><a href="<?= base_url() ?>statistikjekel">Data Jenis Kelamin</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'statistikumur' ? 'active' : '' ?>"><a href="<?= base_url() ?>statistikumur">Data Umur</a></li>
+                    <li class="list <?= $this->uri->segment(1) == 'statistikperkawinan' ? 'active' : '' ?>"><a href="<?= base_url() ?>statistikperkawinan">Data Perkawinan</a></li>
                 </ul>
             </li>
             <li class="list

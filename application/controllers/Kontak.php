@@ -9,9 +9,12 @@ class Kontak extends CI_Controller {
         $this->load->database();
         $this->load->library('form_validation');
         $this->load->model('Kontak_model', 'kontak');
-		$this->load->model('Kepuasan_model', 'kepuasan');
 		$this->load->model('Pengumuman_model', 'pengumuman');
 		$this->load->model('Berita_model', 'berita');
+		$this->load->model('StatistikJekel_model', 'sjkl');
+		$this->load->model('StatistikUmur_model', 'umur');
+		$this->load->model('StatistikPerkawinan_model', 'kawin');
+		$this->load->model('Aparatur_model', 'aparatur');
     }
 
 	public function index()
@@ -24,8 +27,11 @@ class Kontak extends CI_Controller {
 			$this->load->view('template-admin/footer');
 		} else {
 			$data['berita'] = $this->berita->getAllBerita();
+			$data['aparatur'] = $this->aparatur->getAllAparatur();
 			$data['pengumuman'] = $this->pengumuman->getAllPengumuman();
-			$data['kepuasan'] =  $this->db->get('kepuasan')->result_array();
+			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
+			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
+			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('menu-kontak/kontak.php', $data);

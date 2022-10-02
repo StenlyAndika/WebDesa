@@ -11,6 +11,8 @@ class Login extends CI_Controller {
 		$this->load->model('Berita_model', 'berita');
 		$this->load->model('Admin_model', 'admin');
 		$this->load->model('StatistikJekel_model', 'sjkl');
+		$this->load->model('StatistikUmur_model', 'umur');
+		$this->load->model('StatistikPerkawinan_model', 'kawin');
     }
 
 	public function index()
@@ -19,6 +21,8 @@ class Login extends CI_Controller {
 		$data['berita'] = $this->berita->getAllBerita();
 		$data['admin'] = $this->admin->getAllAdmin();
 		$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
+		$data['statistikumur'] = $this->umur->getAllStatistikUmur();
+		$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
 		if(count($data['admin'])<=0) {
 			$this->load->view('template/header', $data);
 			$this->load->view('template/news.php');

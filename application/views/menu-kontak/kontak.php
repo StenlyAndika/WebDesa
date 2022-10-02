@@ -8,7 +8,7 @@
                         Instansi
                     <?php else: ?>
                         <h4 class="font-weight-bold"><?= $instansi[0]['nama'] ?></h4>
-                        <h5><?= $instansi[0]['alamat'] ?></h5>
+                        <h6><?= $instansi[0]['alamat'] ?>, Email : <?= $instansi[0]['email'] ?><br>Telp : <?= $instansi[0]['wa'] ?></h6>
                     <?php endif; ?>
                 <br>
                 </h2>
