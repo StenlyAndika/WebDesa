@@ -83,8 +83,6 @@
     <script src="<?= base_url() ?>assets/js/script.js"></script>
 
     <script>
-        // var jpc = document.querySelectorAll("#jekelPieChart");
-        
         $(function () {
             $('.marquee').marquee({
                 speed: 60
