@@ -15,6 +15,7 @@ class Kontak extends CI_Controller {
 		$this->load->model('StatistikUmur_model', 'umur');
 		$this->load->model('StatistikPerkawinan_model', 'kawin');
 		$this->load->model('Aparatur_model', 'aparatur');
+		$this->load->model('Agenda_model', 'agenda');
     }
 
 	public function index()
@@ -32,6 +33,7 @@ class Kontak extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('menu-kontak/kontak.php', $data);

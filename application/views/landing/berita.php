@@ -4,7 +4,7 @@
             <div class="card-body row align-items-center">
                 <div class="col-md-10 order-1 order-md-1 text-center text-md-left pop-right">
                     <h2 class="font-weight-bold aaz" style="color: #000;">Website Resmi</h2>
-                    <h2 class="font-weight-bold aas" style="color: #2e7eed;">
+                    <h2 class="font-weight-bold aas" style="color: #3A5BA0;">
                         <?php if(count($instansi)<=0) : ?>
                             Nama Desa
                         <?php else: ?>

@@ -83,9 +83,37 @@
     <script src="<?= base_url() ?>assets/js/script.js"></script>
 
     <script>
+        // var jpc = document.querySelectorAll("#jekelPieChart");
+        
         $(function () {
             $('.marquee').marquee({
                 speed: 60
+            });
+
+            var ppc = document.getElementById("panelPieChart");
+            var panelPieChart = new Chart(ppc, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        <?php
+                            foreach ($statistikjekel as $row) {
+                                echo "'".$row['jekel']."',";
+                            }
+                        ?>
+                    ],
+                    datasets: [{
+                        backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+                        hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                        hoverBorderColor: "rgba(234, 236, 244, 1)",
+                        data: [
+                            <?php
+                                foreach ($statistikjekel as $row) {
+                                    echo "'".$row['jumlah']."',";
+                                }
+                            ?>
+                        ],
+                    }],
+                },
             });
             
             $(".news-carousel").owlCarousel({
@@ -129,78 +157,30 @@
                     "sEmptyTable":"Tidak ada data."
                 }
             });
-
-            let arrow = document.querySelectorAll("#jekelPieChart");
-            for (var i = 0; i < arrow.length; i++) {
-                var jekelPieChart = new Chart(arrow[i], {
-                    type: 'doughnut',
-                    data: {
-                        labels: [
+        });
+    </script>
+    <?php if($this->uri->segment(2) == 'jekel') : ?>
+    <script>
+        $(function () {
+            var jpc = document.getElementById("jekelPieChart");
+            var jekelPieChart = new Chart(jpc, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        <?php
+                            foreach ($statistikjekel as $row) {
+                                echo "'".$row['jekel']."',";
+                            }
+                        ?>
+                    ],
+                    datasets: [{
+                        backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+                        hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                        hoverBorderColor: "rgba(234, 236, 244, 1)",
+                        data: [
                             <?php
                                 foreach ($statistikjekel as $row) {
-                                    echo "'".$row['jekel']."',";
-                                }
-                            ?>
-                        ],
-                        datasets: [{
-                            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-                            hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-                            hoverBorderColor: "rgba(234, 236, 244, 1)",
-                            data: [
-                                <?php
-                                    foreach ($statistikjekel as $row) {
-                                        echo "'".$row['jumlah']."',";
-                                    }
-                                ?>
-                            ],
-                        }],
-                    },
-                });
-            }
-
-            var upc = document.getElementById("umurPieChart");
-            var umurPieChart = new Chart(upc, {
-                type: 'doughnut',
-                data: {
-                    labels: [
-                        <?php
-                            foreach ($statistikumur as $row2) {
-                                echo "'".$row2['umur']."',";
-                            }
-                        ?>
-                    ],
-                    datasets: [{
-                        backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc", "#38E54D", "#D800A6", "#FF884B", "#D2001A"],
-                        hoverBorderColor: "rgba(234, 236, 244, 1)",
-                        data: [
-                            <?php
-                                foreach ($statistikumur as $row2) {
-                                    echo "'".$row2['jumlah']."',";
-                                }
-                            ?>
-                        ],
-                    }],
-                },
-            });
-
-            var kpc = document.getElementById("kawinPieChart");
-            var kawinPieChart = new Chart(kpc, {
-                type: 'doughnut',
-                data: {
-                    labels: [
-                        <?php
-                            foreach ($statistikperkawinan as $row3) {
-                                echo "'".$row3['perkawinan']."',";
-                            }
-                        ?>
-                    ],
-                    datasets: [{
-                        backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc", "#38E54D", "#D800A6", "#FF884B", "#D2001A"],
-                        hoverBorderColor: "rgba(234, 236, 244, 1)",
-                        data: [
-                            <?php
-                                foreach ($statistikperkawinan as $row3) {
-                                    echo "'".$row3['jumlah']."',";
+                                    echo "'".$row['jumlah']."',";
                                 }
                             ?>
                         ],
@@ -209,6 +189,67 @@
             });
         });
     </script>
+    <?php endif; ?>
+    <?php if($this->uri->segment(2) == 'umur') : ?>
+    <script>
+        $(function () {
+            var upc = document.getElementById("umurPieChart");
+            var umurPieChart = new Chart(upc, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        <?php
+                            foreach ($statistikumur as $row) {
+                                echo "'".$row['umur']."',";
+                            }
+                        ?>
+                    ],
+                    datasets: [{
+                        backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc", "#38E54D", "#D800A6", "#FF884B", "#D2001A"],
+                        hoverBorderColor: "rgba(234, 236, 244, 1)",
+                        data: [
+                            <?php
+                                foreach ($statistikumur as $row) {
+                                    echo "'".$row['jumlah']."',";
+                                }
+                            ?>
+                        ],
+                    }],
+                },
+            });
+        });
+    </script>
+    <?php endif; ?>
+    <?php if($this->uri->segment(2) == 'perkawinan') : ?>
+    <script>
+        $(function () {
+            var upc = document.getElementById("kawinPieChart");
+            var kawinPieChart = new Chart(upc, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        <?php
+                            foreach ($statistikperkawinan as $row) {
+                                echo "'".$row['perkawinan']."',";
+                            }
+                        ?>
+                    ],
+                    datasets: [{
+                        backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc", "#38E54D", "#D800A6", "#FF884B", "#D2001A"],
+                        hoverBorderColor: "rgba(234, 236, 244, 1)",
+                        data: [
+                            <?php
+                                foreach ($statistikperkawinan as $row) {
+                                    echo "'".$row['jumlah']."',";
+                                }
+                            ?>
+                        ],
+                    }],
+                },
+            });
+        });
+    </script>
+    <?php endif; ?>
 </body>
 
 </html>

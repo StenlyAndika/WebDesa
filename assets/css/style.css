@@ -548,6 +548,10 @@ button:focus,
 .main-nav .dropdown .dropdown-menu li:last-child {
   margin-bottom: 10px;
 }
+
+.chart-container {
+  display: flex;
+}
 @media (min-width: 992px) {
   .main-nav .dropdown .dropdown-menu {
     position: absolute;
@@ -858,6 +862,9 @@ button:focus,
 @media (max-width: 992px) {
   .services .col-lg-4.m-auto {
     display: none;
+  }
+  .chart-container {
+    display: block;
   }
 }
 
@@ -1995,4 +2002,90 @@ hr {
 }
 .footer-main .block-2 ul li a:hover {
   color: #fff;
-} 
+}
+
+
+.timeline {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  width: 3px;
+  background: #1de9b6;
+  left: 5%;
+}
+
+.timeline>li {
+  position: relative;
+  min-height: 50px;
+  padding: 20px 0
+}
+
+.timeline .timeline-time {
+  position: absolute;
+  left: 10%;
+  text-align: left;
+  top: 2px;
+}
+
+.timeline .timeline-time .date,
+.timeline .timeline-time .time {
+  display: block;
+  font-weight: 600;
+}
+
+.timeline .timeline-time .date {
+  line-height: 16px;
+  font-size: 12px;
+}
+
+.timeline .timeline-time .time {
+  line-height: 24px;
+  font-size: 20px;
+  color: #242a30;
+}
+
+.timeline .timeline-icon {
+  left: 0%;
+  position: absolute;
+  width: 10%;
+  text-align: center;
+  top: 10px;
+}
+
+.timeline .timeline-icon a {
+  position: relative;
+  text-decoration: none;
+  width: 15px;
+  height: 15px;
+  left: 5%;
+  display: inline-block;
+  border-radius: 20px;
+  background: #d9e0e7;
+  line-height: 10px;
+  color: #fff;
+  font-size: 14px;
+  border: 3px solid #1de9b6;
+  transition: border-color .2s linear;
+}
+
+.timeline .timeline-body {
+  position: relative;
+  left: 10%;
+  background: #F2F2F2;
+  top: 23px;
+  border-radius: 5px;
+  margin-right: 10%;
+  text-align: left;
+}
+
+.timeline .timeline-body table {
+  margin: 5px;
+}

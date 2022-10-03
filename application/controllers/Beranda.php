@@ -22,6 +22,7 @@ class Beranda extends CI_Controller {
 		$this->load->model('StatistikUmur_model', 'umur');
 		$this->load->model('StatistikPerkawinan_model', 'kawin');
 		$this->load->model('Admin_model', 'admin');
+		$this->load->model('Agenda_model', 'agenda');
 	}
 	
 	public function index()
@@ -40,6 +41,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('landing/berita.php', $data);
@@ -65,6 +67,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('landing/detail_berita.php', $data);
@@ -89,6 +92,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('menu-profil/sejarah.php', $data);
@@ -113,6 +117,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('menu-profil/visimisi.php', $data);
@@ -137,6 +142,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('menu-profil/struktur.php', $data);
@@ -161,6 +167,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
             $this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
             $this->load->view('menu-galeri/foto.php', $data);
@@ -185,6 +192,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
             $this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
             $this->load->view('menu-pelayanan/pelayanan.php', $data);
@@ -209,6 +217,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
             $this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
             $this->load->view('menu-pelayanan/detail.php', $data);
@@ -232,6 +241,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
 			$data['keysearch'] = "";
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
@@ -256,6 +266,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
 			$data['keysearch'] = $this->input->post('cari');
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
@@ -280,6 +291,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('menu-statistik/jekel.php', $data);
@@ -303,6 +315,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('menu-statistik/umur.php', $data);
@@ -326,6 +339,7 @@ class Beranda extends CI_Controller {
 			$data['statistikjekel'] = $this->sjkl->getAllStatistikJekel();
 			$data['statistikumur'] = $this->umur->getAllStatistikUmur();
 			$data['statistikperkawinan'] = $this->kawin->getAllStatistikPerkawinan();
+			$data['agenda'] = $this->agenda->getLimitAgenda();
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/news.php');
 			$this->load->view('menu-statistik/perkawinan.php', $data);

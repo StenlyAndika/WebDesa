@@ -2,8 +2,8 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="container" style="text-align: left;">
-            <h2 class="font-weight-bold mb-2" style="text-align: center;">Statistik Data Umur</h2>
-                <div class="d-flex flex-row">
+                <h2 class="font-weight-bold mb-2" style="text-align: center;">Statistik Data Umur</h2>
+                <div class="chart-container">
                     <div class="container">
                         <div class="chart-pie pt-2 pb-2">
                             <canvas id="umurPieChart"></canvas>

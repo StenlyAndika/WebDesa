@@ -8,19 +8,19 @@
 					</div>
 					<div class="card-body card-block">
 						<form action="" method="POST" enctype="multipart/form-data">
-							<input type="hidden" class="form-control" name="id" value="<?= $aparatur['id']; ?>">
+							<input type="hidden" class="form-control" name="id" value="<?= $statistikumur['id']; ?>">
 							<div class="form-group">
 								<label>Jenis Kelamin</label>
 								<select name="umur" class="form-control">
 								<?php foreach ($umur as $rowumur) : ?>
-									<option value="<?= $rowumur; ?>" <? if($aparatur['umur'] == $rowumur) { echo "selected"; } ?>><?= $rowjkl; ?></option>
+									<option value="<?= $rowumur; ?>" <? if($statistikumur['umur'] == $rowumur) { echo "selected"; } ?>><?= $rowjkl; ?></option>
 								<?php endforeach; ?>
 								</select>
 								<small class="form-text text-danger"><?= form_error('umur'); ?></small>
 							</div>
 							<div class="form-group">
 								<label>Jumlah</label>
-								<input type="text" class="form-control" name="jumlah" value="<?= $aparatur['jumlah']; ?>">
+								<input type="text" class="form-control" name="jumlah" value="<?= $statistikumur['jumlah']; ?>">
 								<small class="form-text text-danger"><?= form_error('jumlah'); ?></small>
 							</div>
 							<div class="form-group">
